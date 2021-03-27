@@ -3,7 +3,7 @@ import { Chat, Message } from "react-chat-library";
 import "react-chat-library/dist/index.css";
 
 const App = () => {
-    const messages: Array<Message> = [
+    const [messages, setMessages] = React.useState<Array<Message>>([
         {
             createdAt: new Date(Date.now()),
             messageId: "1",
@@ -31,16 +31,28 @@ const App = () => {
         {
             createdAt: new Date(Date.now() + 6000),
             messageId: "4",
-            senderId: "2",
+            senderId: "1",
             profilePicture: "https://via.placeholder.com/150",
             photo: "https://via.placeholder.com/1500",
             type: "photo",
             text: "Look at this funny image!"
         }
-    ]
+    ]);
+
+    const onSend = (message: string) => {
+        setMessages([...messages, {
+            messageId: (parseInt(messages[messages.length - 1].messageId) + 1) + "",
+            senderId: "1",
+            profilePicture: "https://via.placeholder.com/150",
+            type: "text",
+            text: message,
+            createdAt: new Date(Date.now())
+        }]);
+    };
+
     return (
         <div style={{width: "100%", height: "100%", overflow: "hidden"}}>
-            <Chat messages={messages} userId={"1"} />
+            <Chat messages={messages} userId={"1"} onSend={onSend} />
         </div>
     );
 }
