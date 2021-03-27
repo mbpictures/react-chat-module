@@ -1,3 +1,5 @@
+@import "Colors";
+
 div.message_container {
     max-width: 40%;
     margin-bottom: 12px;
@@ -19,12 +21,12 @@ div.message_container {
 
         &.from_me {
             color: white;
-            background: #0B93F6;
+            background: $blue;
 
             &:before {
                 right: -7px;
                 width: 20px;
-                background-color: #0B93F6;
+                background-color: $blue;
                 border-bottom-left-radius: 16px 14px;
             }
 
@@ -36,14 +38,14 @@ div.message_container {
             }
         }
         &.from_them {
-            background: #E5E5EA;
+            background: $grey;
             color: black;
             align-self: flex-start;
 
             &:before {
                 left: -7px;
                 width: 20px;
-                background-color: #E5E5EA;
+                background-color: $grey;
                 border-bottom-right-radius: 16px;
             }
 
