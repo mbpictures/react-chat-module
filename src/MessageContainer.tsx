@@ -13,11 +13,19 @@ interface State {
 }
 
 export class MessageContainer extends React.Component<Props, State> {
+    private readonly bottomRef: React.RefObject<HTMLDivElement>;
+
+    constructor(props: Props) {
+        super(props);
+
+        this.bottomRef = React.createRef<HTMLDivElement>();
+    }
+
     messagesEqual(
         messages1: Array<Message>,
         messages2: Array<Message>
     ): boolean {
-        if (messages1.length === messages2.length) return true;
+        if (messages1.length !== messages2.length) return false;
 
         // check whether ids are different
         const uniqueIds2 = Array.from(
@@ -32,6 +40,16 @@ export class MessageContainer extends React.Component<Props, State> {
         return uniqueIdsCombined.length === uniqueIds2.length;
     }
 
+    componentDidMount() {
+        if (this.bottomRef.current === null) return;
+        this.bottomRef.current.scrollIntoView();
+    }
+
+    componentDidUpdate() {
+        if (this.bottomRef.current === null) return;
+        this.bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+
     shouldComponentUpdate(nextProps: Readonly<Props>): boolean {
         return !this.messagesEqual(this.props.messages, nextProps.messages);
     }
@@ -40,6 +58,11 @@ export class MessageContainer extends React.Component<Props, State> {
         const messages = this.props.messages.map((message) =>
             MessageFactory.makeMessage(message, this.props.userId)
         );
-        return <div className={style.message_container}>{messages}</div>;
+        return (
+            <div className={style.message_container}>
+                {messages}
+                <div ref={this.bottomRef} />
+            </div>
+        );
     }
 }
