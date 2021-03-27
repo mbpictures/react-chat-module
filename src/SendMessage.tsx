@@ -12,7 +12,7 @@ export function SendMessage(props: Props) {
 
     const handleSend = () => {
         if (inputField.current === null) return;
-        if (inputField.current.value.length <= 0) return;
+        if (inputField.current.value.trim().length <= 0) return;
         if (!props.onSend) return;
 
         props.onSend(inputField.current.value);
