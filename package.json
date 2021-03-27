@@ -64,5 +64,8 @@
   ],
   "prettier": {
     "tabWidth": 4
+  },
+  "dependencies": {
+    "react-icons": "^4.2.0"
   }
 }
