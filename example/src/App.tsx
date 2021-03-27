@@ -38,7 +38,11 @@ const App = () => {
             text: "Look at this funny image!"
         }
     ]
-    return <Chat messages={messages} userId={"1"} />
+    return (
+        <div style={{width: "100%", height: "100%", overflow: "hidden"}}>
+            <Chat messages={messages} userId={"1"} />
+        </div>
+    );
 }
 
 export default App
