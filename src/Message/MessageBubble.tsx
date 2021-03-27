@@ -3,7 +3,7 @@ import style from "../style/MessageBubble.scss";
 import { Message } from "./Message";
 
 interface Props {
-    children?: JSX.Element;
+    children?: JSX.Element | null;
     userId: string;
     message: Message;
 }
