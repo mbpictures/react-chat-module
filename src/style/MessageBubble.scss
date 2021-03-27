@@ -11,17 +11,25 @@ div.message_container {
         position: relative;
         padding: 10px 20px;
         border-radius: 25px;
+        transition: .3s ease;
 
         &:before, &:after {
             content: "";
             position: absolute;
             bottom: 0;
             height: 25px;
+            transition: .3s ease;
         }
 
         &.from_me {
             color: white;
             background: $blue;
+
+            &:hover {
+                &, &:before {
+                    background-color: $blue_dark;
+                }
+            }
 
             &:before {
                 right: -7px;
@@ -41,6 +49,12 @@ div.message_container {
             background: $grey;
             color: black;
             align-self: flex-start;
+
+            &:hover {
+                &, &:before {
+                    background-color: $grey_dark;
+                }
+            }
 
             &:before {
                 left: -7px;
