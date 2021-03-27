@@ -19,9 +19,17 @@ export function SendMessage(props: Props) {
         inputField.current.value = "";
     };
 
+    const handleInputKey = (
+        event: React.KeyboardEvent<HTMLTextAreaElement>
+    ) => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        handleSend();
+    };
+
     return (
         <div className={style.message_container}>
-            <textarea ref={inputField} />
+            <textarea ref={inputField} onKeyPress={handleInputKey} />
             <button onClick={handleSend}>
                 <IoSend color="#FFFFFF" size={20} />
             </button>
