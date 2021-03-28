@@ -19,6 +19,7 @@ export class MessageContainer extends React.Component<Props, State> {
         super(props);
 
         this.bottomRef = React.createRef<HTMLDivElement>();
+        this.scrollToBottom = this.scrollToBottom.bind(this);
     }
 
     messagesEqual(
@@ -41,13 +42,16 @@ export class MessageContainer extends React.Component<Props, State> {
     }
 
     componentDidMount() {
+        this.scrollToBottom();
+    }
+
+    scrollToBottom(behaviour?: ScrollIntoViewOptions) {
         if (this.bottomRef.current === null) return;
-        this.bottomRef.current.scrollIntoView();
+        this.bottomRef.current.scrollIntoView(behaviour);
     }
 
     componentDidUpdate() {
-        if (this.bottomRef.current === null) return;
-        this.bottomRef.current.scrollIntoView({ behavior: "smooth" });
+        this.scrollToBottom({ behavior: "smooth" });
     }
 
     shouldComponentUpdate(nextProps: Readonly<Props>): boolean {
