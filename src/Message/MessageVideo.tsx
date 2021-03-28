@@ -1,6 +1,7 @@
 import React from "react";
 import { Message } from "./Message";
 import { MessageFactory } from "./MessageFactory";
+import style from "../style/MessageVideo.scss";
 
 interface Props {
     message: Message;
@@ -16,8 +17,8 @@ export function MessageVideo(props: Props): JSX.Element {
         profilePicture: props.message.profilePicture,
     };
     return (
-        <div>
-            <video src={props.message.video} />
+        <div className={style.message_video}>
+            <video src={props.message.video} controls />
             {MessageFactory.makeInnerMessage(textMessage)}
         </div>
     );
