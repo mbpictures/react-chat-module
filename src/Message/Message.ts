@@ -1,4 +1,10 @@
-export type MessageType = "typing" | "text" | "photo" | "video" | "file";
+export type MessageType =
+    | "typing"
+    | "text"
+    | "photo"
+    | "video"
+    | "file"
+    | "audio";
 
 export interface Message {
     createdAt: Date;
@@ -11,6 +17,7 @@ export interface Message {
     video?: string;
     file?: File;
     read?: boolean;
+    audio?: string;
 }
 
 export interface File {

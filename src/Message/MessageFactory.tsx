@@ -6,6 +6,7 @@ import { MessagePhoto } from "./MessagePhoto";
 import { MessageFile } from "./MessageFile";
 import { MessageBubble } from "./MessageBubble";
 import { MessageVideo } from "./MessageVideo";
+import { MessageAudio } from "./MessageAudio";
 
 export class MessageFactory {
     static makeInnerMessage(message: Message): JSX.Element | null {
@@ -14,6 +15,7 @@ export class MessageFactory {
             return <MessageText message={message} />;
         if (message.type === "photo") return <MessagePhoto message={message} />;
         if (message.type === "video") return <MessageVideo message={message} />;
+        if (message.type === "audio") return <MessageAudio message={message} />;
         if (message.type === "file") return <MessageFile message={message} />;
         return null;
     }

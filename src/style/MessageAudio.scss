@@ -1,0 +1,10 @@
+@import "Util";
+
+.message_audio {
+    width: 100%;
+
+    audio {
+        max-width: 100%;
+        @extend .no-outline;
+    }
+}
