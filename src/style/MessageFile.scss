@@ -20,8 +20,8 @@
             @extend .no-outline;
             background-color: transparent;
             transition: .3s ease;
-            width: 50px;
-            height: 50px;
+            min-width: 50px;
+            min-height: 50px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -39,6 +39,8 @@
 
         > p {
             margin: 0 20px 0 5px;
+            flex-grow: 1;
+            word-break: break-word;
         }
 
         > .file {
