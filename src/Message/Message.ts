@@ -10,6 +10,7 @@ export interface Message {
     photo?: string;
     video?: string;
     file?: File;
+    read?: boolean;
 }
 
 export interface File {
