@@ -36,6 +36,15 @@ const App = () => {
             photo: "https://via.placeholder.com/1500",
             type: "photo",
             text: "Look at this funny image!"
+        },
+        {
+            createdAt: new Date(Date.now() + 6000),
+            messageId: "5",
+            senderId: "2",
+            profilePicture: "https://via.placeholder.com/150",
+            video: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+            type: "video",
+            text: "Look at this funny video!"
         }
     ]);
 
