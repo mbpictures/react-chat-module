@@ -45,6 +45,18 @@ const App = () => {
             video: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
             type: "video",
             text: "Look at this funny video!"
+        },
+        {
+            createdAt: new Date(Date.now() + 6000),
+            messageId: "6",
+            senderId: "1",
+            profilePicture: "https://via.placeholder.com/150",
+            file: {
+                fileType: "mp4",
+                file: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+                fileName: "Sample Video"
+            },
+            type: "file"
         }
     ]);
 
