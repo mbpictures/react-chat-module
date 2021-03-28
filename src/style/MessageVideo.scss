@@ -1,8 +1,11 @@
+@import "Util";
+
 .message_video {
     width: 100%;
 
     video {
         max-width: 100%;
         border-radius: 25px;
+        @extend .no-outline;
     }
 }
