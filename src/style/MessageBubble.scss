@@ -3,6 +3,7 @@
 div.message_container {
     max-width: 40%;
     margin-bottom: 12px;
+    transition: .3s ease;
 
     div.message {
         max-width: 100%;
@@ -74,6 +75,7 @@ div.message_container {
 
     &.from_me {
         align-self: flex-end;
+        transform: translateX(150%) scale(0.5);
 
         div.time {
             float: right;
@@ -82,5 +84,15 @@ div.message_container {
 
     &.from_them {
         align-self: flex-start;
+        transform: translateX(-150%) scale(0.5);
+    }
+
+    &.from_them, &.from_me {
+        &.animated_in {
+            transform: translateX(0);
+        }
+        &.not_animated {
+            transition: none!important;
+        }
     }
 }
