@@ -40,14 +40,29 @@ const App = () => {
     ]);
 
     const onSend = (message: string) => {
-        setMessages([...messages, {
-            messageId: (parseInt(messages[messages.length - 1].messageId) + 1) + "",
+        const messageId = parseInt(messages[messages.length - 1].messageId) + 1;
+        const newMessage: Message = {
+            messageId: `${messageId}`,
             senderId: "1",
             profilePicture: "https://via.placeholder.com/150",
             type: "text",
             text: message,
-            createdAt: new Date(Date.now())
-        }]);
+            createdAt: new Date(Date.now()),
+            read: false
+        };
+        setMessages([...messages, newMessage]);
+
+        setTimeout(() => {
+            setMessages([...messages, newMessage, {
+                messageId: `${messageId + 1}`,
+                senderId: "2",
+                profilePicture: "https://via.placeholder.com/150",
+                type: "text",
+                text: message,
+                createdAt: new Date(Date.now()),
+                read: false
+            }]);
+        }, 2000);
     };
 
     return (
