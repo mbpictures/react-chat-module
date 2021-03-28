@@ -57,6 +57,14 @@ const App = () => {
                 fileName: "Sample Video"
             },
             type: "file"
+        },
+        {
+            createdAt: new Date(Date.now() + 6000),
+            messageId: "7",
+            senderId: "2",
+            profilePicture: "https://via.placeholder.com/150",
+            audio: "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3",
+            type: "audio"
         }
     ]);
 
