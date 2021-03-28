@@ -15,5 +15,6 @@ export interface Message {
 
 export interface File {
     fileType: string;
+    fileName: string;
     file: string;
 }

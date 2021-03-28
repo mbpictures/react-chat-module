@@ -1,5 +1,7 @@
 import React from "react";
 import { Message } from "./Message";
+import { IoDownloadOutline, IoDocument } from "react-icons/io5";
+import style from "../style/MessageFile.scss";
 
 interface Props {
     message: Message;
@@ -7,8 +9,19 @@ interface Props {
 
 export function MessageFile(props: Props): JSX.Element {
     return (
-        <div>
-            <a href={props.message.file?.file}>Download File</a>
+        <div className={style.message_file_container}>
+            <div className={style.message_file}>
+                <div className={style.file}>
+                    <div className={style.file_icon}>
+                        <IoDocument />
+                    </div>
+                    <p>{props.message.file?.fileType}</p>
+                </div>
+                <p>{props.message.file?.fileName}</p>
+                <a href={props.message.file?.file}>
+                    <IoDownloadOutline />
+                </a>
+            </div>
         </div>
     );
 }

@@ -1,0 +1,62 @@
+@import "Colors";
+
+.message_file_container {
+    width: 100%;
+
+    .message_file {
+        width: 100%;
+        background-color: #ffffff;
+        border-radius: 25px;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        color: #000000;
+
+        > a {
+            background-color: transparent;
+            transition: .3s ease;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            border: 3px solid $grey;
+            color: $grey_dark;
+
+            &:hover {
+                background-color: $grey_dark;
+                border-color: $grey_dark;
+                color: #FFFFFF;
+            }
+        }
+
+        > p {
+            margin: 0 20px 0 5px;
+        }
+
+        > .file {
+            position: relative;
+
+            > .file_icon {
+                color: $grey_dark;
+                font-size: 50px;
+            }
+
+            > p {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                margin: 0;
+                top: 20px;
+                color: #FFFFFF;
+                font-size: 14px;
+            }
+        }
+    }
+}
