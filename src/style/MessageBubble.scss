@@ -95,4 +95,10 @@ div.message_container {
             transition: none!important;
         }
     }
+
+    @media (max-width: 768px) {
+        & {
+            max-width: 80%;
+        }
+    }
 }
