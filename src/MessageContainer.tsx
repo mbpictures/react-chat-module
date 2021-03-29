@@ -30,10 +30,24 @@ export class MessageContainer extends React.Component<Props, State> {
 
         // check whether ids are different
         const uniqueIds2 = Array.from(
-            new Set(messages2.map((message) => message.messageId))
+            new Set(
+                messages2.map((message) => {
+                    return {
+                        id: message.messageId,
+                        type: message.type,
+                    };
+                })
+            )
         );
         const uniqueIds1 = Array.from(
-            new Set(messages1.map((message) => message.messageId))
+            new Set(
+                messages1.map((message) => {
+                    return {
+                        id: message.messageId,
+                        type: message.type,
+                    };
+                })
+            )
         );
         const uniqueIdsCombined = Array.from(
             new Set(uniqueIds1.concat(uniqueIds2))
