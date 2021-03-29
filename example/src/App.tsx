@@ -79,7 +79,14 @@ const App = () => {
             createdAt: new Date(Date.now()),
             read: false
         };
-        setMessages([...messages, newMessage]);
+        setMessages([...messages, newMessage, {
+            messageId: `${messageId + 1}`,
+            senderId: "2",
+            profilePicture: "https://via.placeholder.com/150",
+            type: "typing",
+            createdAt: new Date(Date.now()),
+            read: false
+        }]);
 
         setTimeout(() => {
             setMessages([...messages, newMessage, {
