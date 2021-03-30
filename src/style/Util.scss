@@ -9,3 +9,17 @@
     user-select: none;
     -webkit-tap-highlight-color: transparent;
 }
+
+.button {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s ease;
+    @extend .no-outline;
+}
