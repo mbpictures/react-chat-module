@@ -79,25 +79,31 @@ const App = () => {
             createdAt: new Date(Date.now()),
             read: false
         };
-        setMessages([...messages, newMessage, {
-            messageId: `${messageId + 1}`,
-            senderId: "2",
-            profilePicture: "https://via.placeholder.com/150",
-            type: "typing",
-            createdAt: new Date(Date.now()),
-            read: false
-        }]);
-
-        setTimeout(() => {
-            setMessages([...messages, newMessage, {
+        setMessages([
+            ...(messages.filter((message) => message.type !== "typing")),
+            newMessage, {
                 messageId: `${messageId + 1}`,
                 senderId: "2",
                 profilePicture: "https://via.placeholder.com/150",
-                type: "text",
-                text: message,
+                type: "typing",
                 createdAt: new Date(Date.now()),
                 read: false
-            }]);
+            }
+        ]);
+
+        setTimeout(() => {
+            setMessages((messages) => [
+                ...(messages.filter((message) => message.type !== "typing")),
+                {
+                    messageId: `${messageId + 1}`,
+                    senderId: "2",
+                    profilePicture: "https://via.placeholder.com/150",
+                    type: "text",
+                    text: message,
+                    createdAt: new Date(Date.now()),
+                    read: false
+                }
+            ]);
         }, 2000);
     };
 
