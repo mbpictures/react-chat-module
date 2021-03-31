@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./style/FileButton.scss";
-import { FileType } from "./Attachment";
+import { FileType } from "./FileAttachment";
 
 interface Props {
     children?: JSX.Element;

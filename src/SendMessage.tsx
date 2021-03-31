@@ -2,7 +2,7 @@ import { OnMessageSend } from "./index";
 import React, { createRef } from "react";
 import style from "./style/SendMessage.scss";
 import { IoSend } from "react-icons/io5";
-import { FileAttachment } from "./Attachment";
+import { FileAttachment } from "./FileAttachment";
 
 interface Props {
     onSend?: OnMessageSend;
