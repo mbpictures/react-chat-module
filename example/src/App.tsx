@@ -35,7 +35,7 @@ const App = () => {
             senderId: "1",
             profilePicture: "https://via.placeholder.com/150",
             photo: "https://via.placeholder.com/1500",
-            type: "photo",
+            type: "image",
             text: "Look at this funny image!"
         },
         {
