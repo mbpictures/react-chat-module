@@ -1,7 +1,7 @@
 export type MessageType =
     | "typing"
     | "text"
-    | "photo"
+    | "image"
     | "video"
     | "file"
     | "audio";

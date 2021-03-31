@@ -2,7 +2,7 @@ import React from "react";
 import { ChatMessage } from "./Message";
 import { MessageTyping } from "./MessageTyping";
 import { MessageText } from "./MessageText";
-import { MessagePhoto } from "./MessagePhoto";
+import { MessageImage } from "./MessageImage";
 import { MessageFile } from "./MessageFile";
 import { MessageBubble } from "./MessageBubble";
 import { MessageVideo } from "./MessageVideo";
@@ -13,7 +13,7 @@ export class MessageFactory {
         if (message.type === "typing") return <MessageTyping />;
         if (message.type === "text" && message.text)
             return <MessageText message={message} />;
-        if (message.type === "photo") return <MessagePhoto message={message} />;
+        if (message.type === "image") return <MessageImage message={message} />;
         if (message.type === "video") return <MessageVideo message={message} />;
         if (message.type === "audio") return <MessageAudio message={message} />;
         if (message.type === "file") return <MessageFile message={message} />;

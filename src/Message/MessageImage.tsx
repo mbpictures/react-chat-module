@@ -7,7 +7,7 @@ interface Props {
     message: ChatMessage;
 }
 
-export function MessagePhoto(props: Props): JSX.Element {
+export function MessageImage(props: Props): JSX.Element {
     const textMessage: ChatMessage = {
         createdAt: props.message.createdAt,
         type: "text",
