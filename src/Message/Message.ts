@@ -10,6 +10,7 @@ export interface Message {
     createdAt: Date;
     type: MessageType;
     text?: string;
+    attachment?: File;
 }
 
 export interface ChatMessage extends Message {
