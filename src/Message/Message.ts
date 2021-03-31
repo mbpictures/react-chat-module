@@ -6,13 +6,16 @@ export type MessageType =
     | "file"
     | "audio";
 
-export interface ChatMessage {
+export interface Message {
     createdAt: Date;
-    messageId: string;
     type: MessageType;
+    text?: string;
+}
+
+export interface ChatMessage extends Message {
+    messageId: string;
     senderId: string | number;
     profilePicture: string;
-    text?: string;
     photo?: string;
     video?: string;
     file?: File;
