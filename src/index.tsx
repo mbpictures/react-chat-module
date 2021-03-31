@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Message } from "./Message/Message";
+import { ChatMessage } from "./Message/Message";
 import { MessageContainer } from "./MessageContainer";
 import { SendMessage } from "./SendMessage";
 import style from "./style/Main.scss";
@@ -8,7 +8,7 @@ export * from "./Message/Message";
 export type OnMessageSend = (message: string) => unknown;
 
 interface Props {
-    messages: Array<Message>;
+    messages: Array<ChatMessage>;
     userId: string;
     onSend?: OnMessageSend;
 }

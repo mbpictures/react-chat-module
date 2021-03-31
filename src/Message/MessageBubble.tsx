@@ -1,11 +1,11 @@
 import React, { createRef, useEffect, useState } from "react";
 import style from "../style/MessageBubble.scss";
-import { Message } from "./Message";
+import { ChatMessage } from "./Message";
 
 interface Props {
     children?: JSX.Element | null;
     userId: string;
-    message: Message;
+    message: ChatMessage;
 }
 
 export function MessageBubble(props: Props) {

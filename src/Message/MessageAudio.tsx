@@ -1,14 +1,14 @@
 import React from "react";
-import { Message } from "./Message";
+import { ChatMessage } from "./Message";
 import { MessageFactory } from "./MessageFactory";
 import style from "../style/MessageAudio.scss";
 
 interface Props {
-    message: Message;
+    message: ChatMessage;
 }
 
 export function MessageAudio(props: Props): JSX.Element {
-    const textMessage: Message = {
+    const textMessage: ChatMessage = {
         createdAt: props.message.createdAt,
         type: "text",
         text: props.message.text,

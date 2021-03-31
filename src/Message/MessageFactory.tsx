@@ -1,5 +1,5 @@
 import React from "react";
-import { Message } from "./Message";
+import { ChatMessage } from "./Message";
 import { MessageTyping } from "./MessageTyping";
 import { MessageText } from "./MessageText";
 import { MessagePhoto } from "./MessagePhoto";
@@ -9,7 +9,7 @@ import { MessageVideo } from "./MessageVideo";
 import { MessageAudio } from "./MessageAudio";
 
 export class MessageFactory {
-    static makeInnerMessage(message: Message): JSX.Element | null {
+    static makeInnerMessage(message: ChatMessage): JSX.Element | null {
         if (message.type === "typing") return <MessageTyping />;
         if (message.type === "text" && message.text)
             return <MessageText message={message} />;
@@ -20,7 +20,7 @@ export class MessageFactory {
         return null;
     }
 
-    static makeMessage(message: Message, userId: string): JSX.Element {
+    static makeMessage(message: ChatMessage, userId: string): JSX.Element {
         return (
             <MessageBubble
                 userId={userId}

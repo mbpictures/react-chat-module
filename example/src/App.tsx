@@ -1,9 +1,9 @@
 import React from "react";
-import { Chat, Message } from "react-chat-library";
+import { Chat, ChatMessage } from "react-chat-library";
 import "react-chat-library/dist/index.css";
 
 const App = () => {
-    const [messages, setMessages] = React.useState<Array<Message>>([
+    const [messages, setMessages] = React.useState<Array<ChatMessage>>([
         {
             createdAt: new Date(Date.now()),
             messageId: "1",
@@ -70,7 +70,7 @@ const App = () => {
 
     const onSend = (message: string) => {
         const messageId = parseInt(messages[messages.length - 1].messageId) + 1;
-        const newMessage: Message = {
+        const newMessage: ChatMessage = {
             messageId: `${messageId}`,
             senderId: "1",
             profilePicture: "https://via.placeholder.com/150",

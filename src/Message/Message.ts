@@ -6,7 +6,7 @@ export type MessageType =
     | "file"
     | "audio";
 
-export interface Message {
+export interface ChatMessage {
     createdAt: Date;
     messageId: string;
     type: MessageType;

@@ -1,8 +1,8 @@
 import React from "react";
-import { Message } from "./Message";
+import { ChatMessage } from "./Message";
 
 interface Props {
-    message: Message;
+    message: ChatMessage;
 }
 
 export function MessageText(props: Props): JSX.Element {

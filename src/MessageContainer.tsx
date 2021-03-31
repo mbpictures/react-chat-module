@@ -1,10 +1,10 @@
-import { Message } from "./Message/Message";
+import { ChatMessage } from "./Message/Message";
 import React from "react";
 import { MessageFactory } from "./Message/MessageFactory";
 import style from "./style/MessageContainer.scss";
 
 interface Props {
-    messages: Array<Message>;
+    messages: Array<ChatMessage>;
     userId: string;
 }
 
@@ -23,8 +23,8 @@ export class MessageContainer extends React.Component<Props, State> {
     }
 
     messagesEqual(
-        messages1: Array<Message>,
-        messages2: Array<Message>
+        messages1: Array<ChatMessage>,
+        messages2: Array<ChatMessage>
     ): boolean {
         if (messages1.length !== messages2.length) return false;
 

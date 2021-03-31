@@ -1,10 +1,10 @@
 import React from "react";
-import { Message } from "./Message";
+import { ChatMessage } from "./Message";
 import { IoDownloadOutline, IoDocument } from "react-icons/io5";
 import style from "../style/MessageFile.scss";
 
 interface Props {
-    message: Message;
+    message: ChatMessage;
 }
 
 export function MessageFile(props: Props): JSX.Element {
