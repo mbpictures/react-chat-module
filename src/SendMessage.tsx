@@ -1,8 +1,9 @@
-import { OnMessageSend } from "./index";
-import React, { createRef } from "react";
+import { Message, OnMessageSend } from "./index";
+import React, { createRef, useState } from "react";
 import style from "./style/SendMessage.scss";
 import { IoSend } from "react-icons/io5";
 import { FileAttachment } from "./FileAttachment";
+import { AttachmentPreview } from "./AttachmentPreview";
 
 interface Props {
     onSend?: OnMessageSend;
@@ -10,6 +11,9 @@ interface Props {
 
 export function SendMessage(props: Props) {
     const inputField = createRef<HTMLTextAreaElement>();
+    const [attachmentMessage, setAttachmentMessage] = useState<Message | null>(
+        null
+    );
 
     const handleSend = () => {
         if (inputField.current === null) return;
@@ -32,6 +36,14 @@ export function SendMessage(props: Props) {
         handleSend();
     };
 
+    const onFileChanged = (file: Message) => {
+        setAttachmentMessage(file);
+    };
+
+    const onAttachmentPreviewClose = () => {
+        setAttachmentMessage(null);
+    };
+
     return (
         <div className={style.message_container}>
             <textarea ref={inputField} onKeyPress={handleInputKey} />
@@ -39,6 +51,12 @@ export function SendMessage(props: Props) {
                 <IoSend color="#FFFFFF" size={20} />
             </button>
             <FileAttachment onSelectFile={onFileChanged} />
+            {attachmentMessage && (
+                <AttachmentPreview
+                    attachment={attachmentMessage}
+                    onCancel={onAttachmentPreviewClose}
+                />
+            )}
         </div>
     );
 }
