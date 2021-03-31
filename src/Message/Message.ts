@@ -18,12 +18,12 @@ export interface ChatMessage extends Message {
     profilePicture: string;
     photo?: string;
     video?: string;
-    file?: File;
+    file?: FileMessage;
     read?: boolean;
     audio?: string;
 }
 
-export interface File {
+export interface FileMessage {
     fileType: string;
     fileName: string;
     file: string;
