@@ -16,7 +16,11 @@ export function SendMessage(props: Props) {
         if (inputField.current.value.trim().length <= 0) return;
         if (!props.onSend) return;
 
-        props.onSend(inputField.current.value);
+        props.onSend({
+            text: inputField.current.value,
+            createdAt: new Date(Date.now()),
+            type: "text",
+        });
         inputField.current.value = "";
     };
 
