@@ -2,8 +2,8 @@ import * as React from "react";
 import { Message } from "./Message/Message";
 import { MessageContainer } from "./MessageContainer";
 import { SendMessage } from "./SendMessage";
-export * from "./Message/Message";
 import style from "./style/Main.scss";
+export * from "./Message/Message";
 
 export type OnMessageSend = (message: string) => unknown;
 
