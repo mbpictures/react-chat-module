@@ -9,6 +9,14 @@ interface Props {
     color: string;
 }
 
+const FileTypeRegex: Record<FileType, string> = {
+    audio: "audio.*",
+    video: "video.*",
+    image: "image.*",
+    document: "application/pdf",
+    any: ".*",
+};
+
 export function FileButton(props: Props): JSX.Element {
     const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file =
@@ -16,23 +24,7 @@ export function FileButton(props: Props): JSX.Element {
                 ? event.target.files[0]
                 : null;
         if (file === null) return;
-        let fileTypeMatches;
-        switch (props.fileType) {
-            case "audio":
-                fileTypeMatches = file.type.match("audio.*");
-                break;
-            case "video":
-                fileTypeMatches = file.type.match("video.*");
-                break;
-            case "image":
-                fileTypeMatches = file.type.match("image.*");
-                break;
-            case "document":
-                fileTypeMatches = file.type === "application/pdf";
-                break;
-            case "any":
-                fileTypeMatches = true;
-        }
+        const fileTypeMatches = file.type.match(FileTypeRegex[props.fileType]);
         if (!fileTypeMatches) return;
         if (!props.onSelect) return;
         props.onSelect(file);
@@ -46,7 +38,11 @@ export function FileButton(props: Props): JSX.Element {
             }}
         >
             <div className={style.darken} />
-            <input type="file" onChange={onChangeFile} />
+            <input
+                type="file"
+                onChange={onChangeFile}
+                accept={FileTypeRegex[props.fileType].replace(".", "/")}
+            />
             {props.children}
         </label>
     );
