@@ -22,7 +22,11 @@ export class MessageFactory {
 
     static makeMessage(message: Message, userId: string): JSX.Element {
         return (
-            <MessageBubble userId={userId} message={message}>
+            <MessageBubble
+                userId={userId}
+                message={message}
+                key={message.messageId}
+            >
                 {MessageFactory.makeInnerMessage(message)}
             </MessageBubble>
         );
