@@ -1,0 +1,24 @@
+@import "Util";
+
+.file_button {
+    @extend .button;
+    position: relative;
+
+    > input[type="file"] {
+        display: none;
+    }
+
+    .darken {
+        background-color: #000;
+        @extend .button;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: .3s ease;
+    }
+
+    &:hover .darken {
+        opacity: 0.2;
+    }
+}

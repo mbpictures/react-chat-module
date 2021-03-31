@@ -2,6 +2,7 @@ import { OnMessageSend } from "./index";
 import React, { createRef } from "react";
 import style from "./style/SendMessage.scss";
 import { IoSend } from "react-icons/io5";
+import { FileAttachment } from "./Attachment";
 
 interface Props {
     onSend?: OnMessageSend;
@@ -30,9 +31,10 @@ export function SendMessage(props: Props) {
     return (
         <div className={style.message_container}>
             <textarea ref={inputField} onKeyPress={handleInputKey} />
-            <button onClick={handleSend}>
+            <button onClick={handleSend} className={style.send}>
                 <IoSend color="#FFFFFF" size={20} />
             </button>
+            <FileAttachment />
         </div>
     );
 }
