@@ -1,5 +1,5 @@
 import React from "react";
-import { Chat, ChatMessage } from "react-chat-library";
+import { Chat, ChatMessage, Message } from "react-chat-library";
 import "react-chat-library/dist/index.css";
 
 const App = () => {
@@ -68,15 +68,15 @@ const App = () => {
         }
     ]);
 
-    const onSend = (message: string) => {
+    const onSend = (message: Message) => {
         const messageId = parseInt(messages[messages.length - 1].messageId) + 1;
         const newMessage: ChatMessage = {
             messageId: `${messageId}`,
             senderId: "1",
             profilePicture: "https://via.placeholder.com/150",
-            type: "text",
-            text: message,
-            createdAt: new Date(Date.now()),
+            type: message.type,
+            text: message.text,
+            createdAt: message.createdAt,
             read: false
         };
         setMessages([
@@ -99,7 +99,7 @@ const App = () => {
                     senderId: "2",
                     profilePicture: "https://via.placeholder.com/150",
                     type: "text",
-                    text: message,
+                    text: message.text,
                     createdAt: new Date(Date.now()),
                     read: false
                 }
