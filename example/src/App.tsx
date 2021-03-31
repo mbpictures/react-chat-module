@@ -3,6 +3,7 @@ import { Chat, ChatMessage, Message } from "react-chat-library";
 import "react-chat-library/dist/index.css";
 
 const App = () => {
+    // add initial set of example messages
     const [messages, setMessages] = React.useState<Array<ChatMessage>>([
         {
             createdAt: new Date(Date.now()),
@@ -69,6 +70,7 @@ const App = () => {
     ]);
 
     const onSend = (message: Message) => {
+        // build new message received from chat component
         const messageId = parseInt(messages[messages.length - 1].messageId) + 1;
         const newMessage: ChatMessage = {
             messageId: `${messageId}`,
@@ -79,6 +81,9 @@ const App = () => {
             createdAt: message.createdAt,
             read: false
         };
+
+        // store user message in messages state and add "server" message
+        // to simulate typing
         setMessages([
             ...(messages.filter((message) => message.type !== "typing")),
             newMessage, {
@@ -92,6 +97,7 @@ const App = () => {
         ]);
 
         setTimeout(() => {
+            // send generated answer after 2secs of "typing"
             setMessages((messages) => [
                 ...(messages.filter((message) => message.type !== "typing")),
                 {
@@ -107,6 +113,7 @@ const App = () => {
         }, 2000);
     };
 
+    // adding chat component in full screen container
     return (
         <div style={{width: "100%", height: "100%", overflow: "hidden"}}>
             <Chat messages={messages} userId={"1"} onSend={onSend} />
