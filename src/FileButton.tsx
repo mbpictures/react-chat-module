@@ -1,11 +1,12 @@
 import React from "react";
 import style from "./style/FileButton.scss";
 import { FileType } from "./FileAttachment";
+import { Message } from "./Message/Message";
 
 interface Props {
     children?: JSX.Element;
     fileType: FileType;
-    onSelect?: (file: File) => unknown;
+    onSelect?: (file: Message) => unknown;
     color: string;
 }
 
@@ -27,7 +28,16 @@ export function FileButton(props: Props): JSX.Element {
         const fileTypeMatches = file.type.match(FileTypeRegex[props.fileType]);
         if (!fileTypeMatches) return;
         if (!props.onSelect) return;
-        props.onSelect(file);
+        const type =
+            props.fileType === "any" || props.fileType === "document"
+                ? "file"
+                : props.fileType;
+        props.onSelect({
+            attachment: file,
+            createdAt: new Date(Date.now()),
+            text: "",
+            type: type,
+        });
     };
 
     return (

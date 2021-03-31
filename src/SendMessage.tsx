@@ -38,7 +38,7 @@ export function SendMessage(props: Props) {
             <button onClick={handleSend} className={style.send}>
                 <IoSend color="#FFFFFF" size={20} />
             </button>
-            <FileAttachment />
+            <FileAttachment onSelectFile={onFileChanged} />
         </div>
     );
 }

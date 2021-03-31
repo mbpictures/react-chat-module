@@ -9,6 +9,7 @@ import {
 import React, { useRef, useState } from "react";
 import style from "./style/FileAttachment.scss";
 import { FileButton } from "./FileButton";
+import { Message } from "./Message/Message";
 
 export const FileTypes = [
     "audio",
@@ -33,7 +34,11 @@ export const FileTypeIcons: Record<FileType, JSX.Element> = {
     any: <IoFileTrayFullOutline size={20} color="#FFFFFF" />,
 };
 
-export function FileAttachment() {
+interface Props {
+    onSelectFile: (file: Message) => any;
+}
+
+export function FileAttachment(props: Props) {
     const [popupOpen, setPopupOpen] = useState<boolean>(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -45,11 +50,21 @@ export function FileAttachment() {
         setPopupOpen(false);
     };
 
+    const handleSelectFile = (file: Message) => {
+        handleCloseAttachment();
+        props.onSelectFile(file);
+    };
+
     const classNamesPopup = `${style.popup} ${popupOpen ? style.open : ""}`;
 
     const fileButtons = FileTypes.map((type) => {
         return (
-            <FileButton fileType={type} key={type} color={FileTypeColor[type]}>
+            <FileButton
+                fileType={type}
+                key={type}
+                color={FileTypeColor[type]}
+                onSelect={handleSelectFile}
+            >
                 {FileTypeIcons[type]}
             </FileButton>
         );
