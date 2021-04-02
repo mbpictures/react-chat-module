@@ -9,8 +9,10 @@ import { MessageVideo } from "./FactoryClasses/MessageVideo";
 import { MessageAudio } from "./FactoryClasses/MessageAudio";
 
 export class MessageFactory {
-    static makeInnerMessage(message: ChatMessage): JSX.Element | null {
-        console.log(message.type);
+    static makeInnerMessage(
+        message: ChatMessage,
+        disableText = false
+    ): JSX.Element | null {
         if (message.type === "typing") return <MessageTyping />;
         if (message.type === "text" && message.text)
             return <MessageText message={message} />;
@@ -25,7 +27,9 @@ export class MessageFactory {
             fillElement = <MessageFile message={message} />;
         message.type = "text";
         const text =
-            message.text !== undefined ? this.makeInnerMessage(message) : null;
+            message.text !== undefined && !disableText
+                ? this.makeInnerMessage(message)
+                : null;
         return (
             <div style={{ width: "100%" }}>
                 {fillElement}
