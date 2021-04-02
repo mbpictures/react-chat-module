@@ -11,24 +11,25 @@ import { MessageAudio } from "./FactoryClasses/MessageAudio";
 export class MessageFactory {
     static makeInnerMessage(
         message: ChatMessage,
+        props?: Record<string, any>,
         disableText = false
     ): JSX.Element | null {
         if (message.type === "typing") return <MessageTyping />;
         if (message.type === "text" && message.text)
-            return <MessageText message={message} />;
+            return <MessageText message={message} {...props} />;
         let fillElement = null;
         if (message.type === "image")
-            fillElement = <MessageImage message={message} />;
+            fillElement = <MessageImage message={message} {...props} />;
         if (message.type === "video")
-            fillElement = <MessageVideo message={message} />;
+            fillElement = <MessageVideo message={message} {...props} />;
         if (message.type === "audio")
-            fillElement = <MessageAudio message={message} />;
+            fillElement = <MessageAudio message={message} {...props} />;
         if (message.type === "file")
-            fillElement = <MessageFile message={message} />;
+            fillElement = <MessageFile message={message} {...props} />;
         message.type = "text";
         const text =
             message.text !== undefined && !disableText
-                ? this.makeInnerMessage(message)
+                ? this.makeInnerMessage(message, props)
                 : null;
         return (
             <div style={{ width: "100%" }}>
