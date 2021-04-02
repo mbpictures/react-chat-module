@@ -1,5 +1,5 @@
 import React from "react";
-import { ChatMessage } from "./Message";
+import { ChatMessage } from "../Message";
 
 interface Props {
     message: ChatMessage;

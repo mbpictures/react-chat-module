@@ -1,7 +1,7 @@
 import React from "react";
-import style from "./style/FileButton.scss";
+import style from "../style/FileButton.scss";
 import { FileType } from "./FileAttachment";
-import { Message } from "./Message/Message";
+import { Message } from "../Message/Message";
 
 interface Props {
     children?: JSX.Element;

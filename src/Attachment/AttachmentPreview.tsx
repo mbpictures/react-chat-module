@@ -1,8 +1,8 @@
 import React from "react";
-import style from "./style/AttachmentPreview.scss";
-import { Message } from "./Message/Message";
+import style from "../style/AttachmentPreview.scss";
+import { Message } from "../Message/Message";
 import { IoCloseOutline } from "react-icons/io5";
-import { Input } from "./Input";
+import { Input } from "../Input";
 
 interface Props {
     attachment: Message;

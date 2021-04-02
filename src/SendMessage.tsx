@@ -1,8 +1,8 @@
 import { Message, OnMessageSend } from "./index";
 import React, { useState } from "react";
 import style from "./style/SendMessage.scss";
-import { FileAttachment } from "./FileAttachment";
-import { AttachmentPreview } from "./AttachmentPreview";
+import { FileAttachment } from "./Attachment/FileAttachment";
+import { AttachmentPreview } from "./Attachment/AttachmentPreview";
 import { Input } from "./Input";
 
 interface Props {

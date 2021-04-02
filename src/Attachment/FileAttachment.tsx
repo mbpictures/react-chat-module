@@ -7,9 +7,9 @@ import {
     IoMusicalNotesOutline,
 } from "react-icons/io5";
 import React, { useRef, useState } from "react";
-import style from "./style/FileAttachment.scss";
+import style from "../style/FileAttachment.scss";
 import { FileButton } from "./FileButton";
-import { Message } from "./Message/Message";
+import { Message } from "../Message/Message";
 
 export const FileTypes = [
     "audio",

@@ -1,12 +1,12 @@
 import React from "react";
 import { ChatMessage } from "./Message";
-import { MessageTyping } from "./MessageTyping";
-import { MessageText } from "./MessageText";
-import { MessageImage } from "./MessageImage";
-import { MessageFile } from "./MessageFile";
-import { MessageBubble } from "./MessageBubble";
-import { MessageVideo } from "./MessageVideo";
-import { MessageAudio } from "./MessageAudio";
+import { MessageTyping } from "./FactoryClasses/MessageTyping";
+import { MessageText } from "./FactoryClasses/MessageText";
+import { MessageImage } from "./FactoryClasses/MessageImage";
+import { MessageFile } from "./FactoryClasses/MessageFile";
+import { MessageBubble } from "./FactoryClasses/MessageBubble";
+import { MessageVideo } from "./FactoryClasses/MessageVideo";
+import { MessageAudio } from "./FactoryClasses/MessageAudio";
 
 export class MessageFactory {
     static makeInnerMessage(message: ChatMessage): JSX.Element | null {

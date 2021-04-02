@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ChatMessage, Message } from "./Message/Message";
-import { MessageContainer } from "./MessageContainer";
+import { MessageContainer } from "./Message/MessageContainer";
 import { SendMessage } from "./SendMessage";
 import style from "./style/Main.scss";
 export * from "./Message/Message";

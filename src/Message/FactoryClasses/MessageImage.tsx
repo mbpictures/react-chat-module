@@ -1,7 +1,7 @@
 import React from "react";
-import { ChatMessage } from "./Message";
-import style from "../style/Message/MessagePhoto.scss";
-import { MessageFactory } from "./MessageFactory";
+import { ChatMessage } from "../Message";
+import style from "../../style/Message/MessagePhoto.scss";
+import { MessageFactory } from "../MessageFactory";
 
 interface Props {
     message: ChatMessage;
