@@ -5,10 +5,12 @@ import { IoCloseOutline } from "react-icons/io5";
 import { Input } from "../../Input";
 import { AttachmentPreviewFactory } from "./AttachmentPreviewFactory";
 import { LoadingIndicator } from "../../LoadingIndicator";
+import { OnMessageSend } from "../../index";
 
 interface Props {
     attachment: Message;
     onCancel: () => any;
+    onSend?: OnMessageSend;
 }
 
 const arrayBufferToBase64 = (buffer: ArrayBuffer) => {
@@ -43,6 +45,14 @@ export function AttachmentPreview(props: Props) {
         props.onCancel();
     };
 
+    const onSend = (message: Message) => {
+        if (!props.onSend) return;
+        props.attachment.text = message.text;
+        props.attachment.createdAt = message.createdAt;
+        props.onSend(props.attachment);
+        onCancel();
+    };
+
     return (
         <div className={style.attachment_preview}>
             <div className={style.header}>
@@ -60,7 +70,7 @@ export function AttachmentPreview(props: Props) {
                     )}
             </div>
             <div className={style.message}>
-                <Input allowEmptyMessages />
+                <Input allowEmptyMessages onSend={onSend} />
             </div>
         </div>
     );

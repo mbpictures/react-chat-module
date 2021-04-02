@@ -30,6 +30,7 @@ export function SendMessage(props: Props) {
                 <AttachmentPreview
                     attachment={attachmentMessage}
                     onCancel={onAttachmentPreviewClose}
+                    onSend={props.onSend}
                 />
             )}
         </div>
