@@ -36,9 +36,14 @@ export function MessageBubble(props: Props) {
             className={`${style.message_container} ${senderClass} ${animationClass}`}
             ref={containerRef}
         >
-            <div className={classNames}>{props.children}</div>
-            <div className={style.time}>
-                {props.message.createdAt.toLocaleTimeString()}
+            <div className={style.profile_picture}>
+                <img src={props.message.profilePicture} />
+            </div>
+            <div className={style.bubble_container}>
+                <div className={classNames}>{props.children}</div>
+                <div className={style.time}>
+                    {props.message.createdAt.toLocaleTimeString()}
+                </div>
             </div>
         </div>
     );

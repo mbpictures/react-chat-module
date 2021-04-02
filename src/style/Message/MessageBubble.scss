@@ -4,71 +4,86 @@ div.message_container {
     max-width: 40%;
     margin-bottom: 12px;
     transition: .3s ease;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
 
-    div.message {
-        max-width: 100%;
-        word-wrap: break-word;
-        line-height: 24px;
-        position: relative;
-        padding: 10px 20px;
-        border-radius: 25px;
-        transition: .3s ease;
+    .profile_picture {
+        max-width: 50px;
+        margin-right: 26px;
 
-        &:before, &:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            height: 25px;
+        > img {
+            max-width: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    .bubble_container {
+        div.message {
+            max-width: 100%;
+            word-wrap: break-word;
+            line-height: 24px;
+            position: relative;
+            padding: 10px 20px;
+            border-radius: 25px;
             transition: .3s ease;
-        }
 
-        &.from_me {
-            color: white;
-            background: $blue;
+            &:before, &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                height: 25px;
+                transition: .3s ease;
+            }
 
-            &:hover {
-                &, &:before {
-                    background-color: $blue_dark;
+            &.from_me {
+                color: white;
+                background: $blue;
+
+                &:hover {
+                    &, &:before {
+                        background-color: $blue_dark;
+                    }
+                }
+
+                &:before {
+                    right: -7px;
+                    width: 20px;
+                    background-color: $blue;
+                    border-bottom-left-radius: 16px 14px;
+                }
+
+                &:after {
+                    right: -26px;
+                    width: 26px;
+                    background-color: white;
+                    border-bottom-left-radius: 10px;
                 }
             }
+            &.from_them {
+                background: $grey;
+                color: black;
+                align-self: flex-start;
 
-            &:before {
-                right: -7px;
-                width: 20px;
-                background-color: $blue;
-                border-bottom-left-radius: 16px 14px;
-            }
-
-            &:after {
-                right: -26px;
-                width: 26px;
-                background-color: white;
-                border-bottom-left-radius: 10px;
-            }
-        }
-        &.from_them {
-            background: $grey;
-            color: black;
-            align-self: flex-start;
-
-            &:hover {
-                &, &:before {
-                    background-color: $grey_dark;
+                &:hover {
+                    &, &:before {
+                        background-color: $grey_dark;
+                    }
                 }
-            }
 
-            &:before {
-                left: -7px;
-                width: 20px;
-                background-color: $grey;
-                border-bottom-right-radius: 16px;
-            }
+                &:before {
+                    left: -7px;
+                    width: 20px;
+                    background-color: $grey;
+                    border-bottom-right-radius: 16px;
+                }
 
-            &:after {
-                left: -26px;
-                width: 26px;
-                background-color: white;
-                border-bottom-right-radius: 10px;
+                &:after {
+                    left: -26px;
+                    width: 26px;
+                    background-color: white;
+                    border-bottom-right-radius: 10px;
+                }
             }
         }
     }
@@ -76,6 +91,12 @@ div.message_container {
     &.from_me {
         align-self: flex-end;
         transform: translateX(150%) scale(0.5);
+        flex-direction: row-reverse;
+
+        > .profile_picture {
+            margin-right: 0;
+            margin-left: 26px;
+        }
 
         div.time {
             float: right;
