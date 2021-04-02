@@ -6,37 +6,5 @@
     display: flex;
     padding: 10px 20px;
     box-sizing: border-box;
-
-    > textarea {
-        flex: 1;
-        border-radius: 20px;
-        outline: none;
-        height: 30px;
-        min-height: 30px;
-        max-height: 100px;
-        padding: 5px 20px;
-        font-family: sans-serif;
-        font-size: 14px;
-    }
-    button {
-        align-self: center;
-        margin-left: 10px;
-        @extend .button;
-
-        &.send {
-            background-color: $blue;
-
-            &:hover {
-                background-color: $blue_dark;
-            }
-        }
-
-        &.attachment {
-            background-color: $green;
-
-            &:hover {
-                background-color: $green_dark;
-            }
-        }
-    }
+    flex-direction: row;
 }
