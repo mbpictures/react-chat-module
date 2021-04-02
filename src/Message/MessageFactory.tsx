@@ -15,7 +15,7 @@ export class MessageFactory {
         disableText = false
     ): JSX.Element | null {
         if (message.type === "typing") return <MessageTyping />;
-        if (message.type === "text" && message.text)
+        if (message.type === "text")
             return <MessageText message={message} {...props} />;
         let fillElement = null;
         if (message.type === "image")
