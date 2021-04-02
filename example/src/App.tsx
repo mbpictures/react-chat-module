@@ -11,7 +11,8 @@ const App = () => {
             senderId: "1",
             profilePicture: "https://via.placeholder.com/150",
             type: "text",
-            text: "Hello, how are you?"
+            text: "Hello, how are you?",
+            name: "John Doe"
         },
         {
             createdAt: new Date(Date.now() + 2000),
