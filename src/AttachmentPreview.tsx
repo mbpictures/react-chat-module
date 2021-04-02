@@ -2,6 +2,7 @@ import React from "react";
 import style from "./style/AttachmentPreview.scss";
 import { Message } from "./Message/Message";
 import { IoCloseOutline } from "react-icons/io5";
+import { Input } from "./Input";
 
 interface Props {
     attachment: Message;
@@ -20,7 +21,9 @@ export function AttachmentPreview(props: Props) {
             <div>
 
             </div>
-            {props.attachment.type}
+            <div className={style.message}>
+                <Input allowEmptyMessages />
+            </div>
         </div>
     );
 }
