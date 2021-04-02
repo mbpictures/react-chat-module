@@ -7,7 +7,10 @@ export class AttachmentPreviewFactory {
         blob?: string
     ): JSX.Element | null {
         if (!message.attachment || !blob) return null;
-        const chatMessage: ChatMessage = message as ChatMessage;
+        const chatMessage: ChatMessage = Object.assign(
+            {},
+            message
+        ) as ChatMessage;
         let filetype;
         chatMessage.file = {
             file: blob,
