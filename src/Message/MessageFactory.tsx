@@ -10,14 +10,28 @@ import { MessageAudio } from "./FactoryClasses/MessageAudio";
 
 export class MessageFactory {
     static makeInnerMessage(message: ChatMessage): JSX.Element | null {
+        console.log(message.type);
         if (message.type === "typing") return <MessageTyping />;
         if (message.type === "text" && message.text)
             return <MessageText message={message} />;
-        if (message.type === "image") return <MessageImage message={message} />;
-        if (message.type === "video") return <MessageVideo message={message} />;
-        if (message.type === "audio") return <MessageAudio message={message} />;
-        if (message.type === "file") return <MessageFile message={message} />;
-        return null;
+        let fillElement = null;
+        if (message.type === "image")
+            fillElement = <MessageImage message={message} />;
+        if (message.type === "video")
+            fillElement = <MessageVideo message={message} />;
+        if (message.type === "audio")
+            fillElement = <MessageAudio message={message} />;
+        if (message.type === "file")
+            fillElement = <MessageFile message={message} />;
+        message.type = "text";
+        const text =
+            message.text !== undefined ? this.makeInnerMessage(message) : null;
+        return (
+            <div style={{ width: "100%" }}>
+                {fillElement}
+                {text}
+            </div>
+        );
     }
 
     static makeMessage(message: ChatMessage, userId: string): JSX.Element {

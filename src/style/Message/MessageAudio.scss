@@ -1,10 +1,6 @@
 @import "src/style/Util";
 
-.message_audio {
-    width: 100%;
-
-    audio {
-        max-width: 100%;
-        @extend .no-outline;
-    }
+.audio {
+    max-width: 100%;
+    @extend .no-outline;
 }

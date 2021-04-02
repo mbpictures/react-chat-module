@@ -1,8 +1,5 @@
-div.photo {
-    width: 100%;
 
-    > img {
-        max-width: 100%;
-        border-radius: 25px;
-    }
+.photo {
+    max-width: 100%;
+    border-radius: 25px;
 }
