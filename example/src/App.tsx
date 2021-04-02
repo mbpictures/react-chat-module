@@ -99,17 +99,13 @@ const App = () => {
 
         setTimeout(() => {
             // send generated answer after 2secs of "typing"
+            const answer = Object.assign({}, newMessage);
+            answer.senderId = "2";
+            answer.createdAt = new Date(Date.now());
+            answer.messageId = `${messageId + 1}`;
             setMessages((messages) => [
                 ...(messages.filter((message) => message.type !== "typing")),
-                {
-                    messageId: `${messageId + 1}`,
-                    senderId: "2",
-                    profilePicture: "https://via.placeholder.com/150",
-                    type: "text",
-                    text: message.text,
-                    createdAt: new Date(Date.now()),
-                    read: false
-                }
+                answer
             ]);
         }, 2000);
     };
