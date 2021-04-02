@@ -22,6 +22,10 @@ export class AttachmentPreviewFactory {
         chatMessage.photo = blob;
         chatMessage.video = blob;
 
-        return MessageFactory.makeInnerMessage(chatMessage, true);
+        return MessageFactory.makeInnerMessage(
+            chatMessage,
+            { hideDownload: true },
+            true
+        );
     }
 }
