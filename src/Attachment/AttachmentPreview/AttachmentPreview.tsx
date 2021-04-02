@@ -38,11 +38,16 @@ export function AttachmentPreview(props: Props) {
         };
     }, []);
 
+    const onCancel = () => {
+        setFile(undefined); // clean up reference
+        props.onCancel();
+    };
+
     return (
         <div className={style.attachment_preview}>
             <div className={style.header}>
                 <span>Preview</span>
-                <button onClick={props.onCancel}>
+                <button onClick={onCancel}>
                     <IoCloseOutline />
                 </button>
             </div>
