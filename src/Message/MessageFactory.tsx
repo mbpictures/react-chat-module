@@ -26,6 +26,8 @@ export class MessageFactory {
             fillElement = <MessageAudio message={message} {...props} />;
         if (message.type === "file")
             fillElement = <MessageFile message={message} {...props} />;
+
+        message = Object.assign({}, message);
         message.type = "text";
         const text =
             message.text !== undefined && !disableText
