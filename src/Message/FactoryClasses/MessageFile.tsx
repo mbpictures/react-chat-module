@@ -5,6 +5,7 @@ import style from "../../style/Message/MessageFile.scss";
 
 interface Props {
     message: ChatMessage;
+    hideDownload?: boolean;
 }
 
 export function MessageFile(props: Props): JSX.Element {
@@ -18,9 +19,11 @@ export function MessageFile(props: Props): JSX.Element {
                     <p>{props.message.file?.fileType}</p>
                 </div>
                 <p>{props.message.file?.fileName}</p>
-                <a href={props.message.file?.file}>
-                    <IoDownloadOutline />
-                </a>
+                {!props.hideDownload && (
+                    <a href={props.message.file?.file}>
+                        <IoDownloadOutline />
+                    </a>
+                )}
             </div>
         </div>
     );
