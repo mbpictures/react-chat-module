@@ -42,7 +42,12 @@ export function MessageBubble(props: Props) {
                 </div>
             )}
             <div className={style.bubble_container}>
-                <div className={classNames}>{props.children}</div>
+                <div className={classNames}>
+                    {props.message.name && (
+                        <strong>{props.message.name}</strong>
+                    )}
+                    {props.children}
+                </div>
                 <div className={style.time}>
                     {props.message.createdAt.toLocaleTimeString()}
                 </div>

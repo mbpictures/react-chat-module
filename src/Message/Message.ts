@@ -17,6 +17,7 @@ export interface ChatMessage extends Message {
     messageId: string;
     senderId: string | number;
     profilePicture?: string;
+    name?: string;
     photo?: string;
     video?: string;
     file?: FileMessage;
