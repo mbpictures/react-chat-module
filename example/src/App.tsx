@@ -2,6 +2,27 @@ import React from "react";
 import { Chat, ChatMessage, Message } from "react-chat-library";
 import "react-chat-library/dist/index.css";
 
+const loadFile = (file: File): Promise<string> => {
+    return new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            if (reader.result === null) return;
+            if (typeof reader.result === "string") resolve(reader.result);
+
+            let binary = "";
+            const bytes = new Uint8Array(reader.result as ArrayBuffer);
+            const len = bytes.byteLength;
+            for (let i = 0; i < len; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            resolve(window.btoa(binary));
+        };
+        reader.onerror = reject;
+        reader.onabort = reject;
+    });
+};
+
 const App = () => {
     // add initial set of example messages
     const [messages, setMessages] = React.useState<Array<ChatMessage>>([
@@ -70,7 +91,7 @@ const App = () => {
         }
     ]);
 
-    const onSend = (message: Message) => {
+    const onSend = async (message: Message) => {
         // build new message received from chat component
         const messageId = parseInt(messages[messages.length - 1].messageId) + 1;
         const newMessage: ChatMessage = {
@@ -82,6 +103,12 @@ const App = () => {
             createdAt: message.createdAt,
             read: false
         };
+        if (message.type === "video" && message.attachment)
+            newMessage.video = await loadFile(message.attachment);
+        if (message.type === "image" && message.attachment)
+            newMessage.photo = await loadFile(message.attachment);
+        if (message.type === "audio" && message.attachment)
+            newMessage.audio = await loadFile(message.attachment);
 
         // store user message in messages state and add "server" message
         // to simulate typing
