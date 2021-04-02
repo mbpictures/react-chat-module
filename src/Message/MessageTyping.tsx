@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../style/MessageTyping.scss";
+import style from "../style/Message/MessageTyping.scss";
 
 export function MessageTyping(): JSX.Element {
     return (

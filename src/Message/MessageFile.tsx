@@ -1,7 +1,7 @@
 import React from "react";
 import { ChatMessage } from "./Message";
 import { IoDownloadOutline, IoDocument } from "react-icons/io5";
-import style from "../style/MessageFile.scss";
+import style from "../style/Message/MessageFile.scss";
 
 interface Props {
     message: ChatMessage;

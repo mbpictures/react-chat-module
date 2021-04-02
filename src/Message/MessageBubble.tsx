@@ -1,5 +1,5 @@
 import React, { createRef, useEffect, useState } from "react";
-import style from "../style/MessageBubble.scss";
+import style from "../style/Message/MessageBubble.scss";
 import { ChatMessage } from "./Message";
 
 interface Props {
