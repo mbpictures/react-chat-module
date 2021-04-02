@@ -8,10 +8,15 @@ export class AttachmentPreviewFactory {
     ): JSX.Element | null {
         if (!message.attachment || !blob) return null;
         const chatMessage: ChatMessage = message as ChatMessage;
+        let filetype;
         chatMessage.file = {
             file: blob,
             fileName: message.attachment.name,
-            fileType: message.attachment.type,
+            fileType:
+                (filetype = message.attachment.name.split(".").pop()) !==
+                undefined
+                    ? filetype
+                    : "",
         };
         chatMessage.audio = blob;
         chatMessage.photo = blob;
