@@ -4,6 +4,7 @@ import { MessageContainer } from "./Message/MessageContainer";
 import { SendMessage } from "./SendMessage";
 import style from "./style/Main.scss";
 export * from "./Message/Message";
+export { MessageContainer };
 
 export type OnMessageSend = (message: Message) => unknown;
 
