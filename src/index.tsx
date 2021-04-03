@@ -14,18 +14,17 @@ interface Props {
     onSend?: OnMessageSend;
 }
 
-export class Chat extends React.Component<Props, any> {
-    render() {
-        return (
-            <div className={style.main}>
-                <div className={style.container}>
-                    <MessageContainer
-                        userId={this.props.userId}
-                        messages={this.props.messages}
-                    />
-                    <SendMessage onSend={this.props.onSend} />
-                </div>
-            </div>
-        );
-    }
 }
+export const Chat: React.FunctionComponent<Props> = (props: Props) => {
+    return (
+        <div className={style.main}>
+            <div className={style.container}>
+                <MessageContainer
+                    userId={props.userId}
+                    messages={props.messages}
+                />
+                <SendMessage onSend={props.onSend} />
+            </div>
+        </div>
+    );
+};
