@@ -4,13 +4,13 @@ import { Message } from "../../Message/Message";
 import { IoCloseOutline } from "react-icons/io5";
 import { Input } from "../../Input";
 import { AttachmentPreviewFactory } from "./AttachmentPreviewFactory";
-import { LoadingIndicator } from "../../LoadingIndicator";
 import { OnMessageSend } from "../../index";
 
 interface Props {
     attachment: Message;
     onCancel: () => any;
     onSend?: OnMessageSend;
+    loadingSpinner?: JSX.Element;
 }
 
 const arrayBufferToBase64 = (buffer: ArrayBuffer) => {
@@ -62,7 +62,7 @@ export function AttachmentPreview(props: Props) {
                 </button>
             </div>
             <div className={style.preview}>
-                {file === undefined && <LoadingIndicator />}
+                {file === undefined && props.loadingSpinner}
                 {file !== undefined &&
                     AttachmentPreviewFactory.makeAttachmentPreview(
                         props.attachment,

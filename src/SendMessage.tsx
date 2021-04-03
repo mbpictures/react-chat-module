@@ -7,6 +7,7 @@ import { Input } from "./Input";
 
 interface Props {
     onSend?: OnMessageSend;
+    loadingSpinner?: JSX.Element;
 }
 
 export function SendMessage(props: Props) {
@@ -31,6 +32,7 @@ export function SendMessage(props: Props) {
                     attachment={attachmentMessage}
                     onCancel={onAttachmentPreviewClose}
                     onSend={props.onSend}
+                    loadingSpinner={props.loadingSpinner}
                 />
             )}
         </div>
