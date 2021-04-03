@@ -1,14 +1,15 @@
-import { IoSend } from "react-icons/io5";
 import React, { createRef } from "react";
 import { OnMessageSend } from "./index";
 import style from "./style/Input.scss";
+import { SendButtonRenderer } from "./Renderer/SendButtonRenderer";
 
 interface Props {
     onSend?: OnMessageSend;
     allowEmptyMessages?: boolean;
+    sendButton?: JSX.Element;
 }
 
-export function Input(props: Props) {
+export const Input: React.FunctionComponent<Props> = (props: Props) => {
     const inputField = createRef<HTMLTextAreaElement>();
 
     const handleSend = () => {
@@ -39,9 +40,11 @@ export function Input(props: Props) {
     return (
         <div className={style.input}>
             <textarea ref={inputField} onKeyPress={handleInputKey} />
-            <button onClick={handleSend} className={style.send}>
-                <IoSend color="#FFFFFF" size={20} />
-            </button>
+            <div onClick={handleSend}>{props.sendButton}</div>
         </div>
     );
-}
+};
+
+Input.defaultProps = {
+    sendButton: <SendButtonRenderer />,
+};

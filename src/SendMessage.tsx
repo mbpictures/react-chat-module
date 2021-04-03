@@ -8,6 +8,11 @@ import { Input } from "./Input";
 interface Props {
     onSend?: OnMessageSend;
     loadingSpinner?: JSX.Element;
+    buttons?: Partial<SendMessageButtons>;
+}
+
+export interface SendMessageButtons {
+    send: JSX.Element;
 }
 
 export function SendMessage(props: Props) {
@@ -25,7 +30,7 @@ export function SendMessage(props: Props) {
 
     return (
         <div className={style.message_container}>
-            <Input onSend={props.onSend} />
+            <Input onSend={props.onSend} sendButton={props.buttons?.send} />
             <FileAttachment onSelectFile={onFileChanged} />
             {attachmentMessage && (
                 <AttachmentPreview

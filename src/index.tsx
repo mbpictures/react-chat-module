@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ChatMessage, Message } from "./Message/Message";
 import { MessageContainer } from "./Message/MessageContainer";
-import { SendMessage } from "./SendMessage";
+import { SendMessage, SendMessageButtons } from "./SendMessage";
 import style from "./style/Main.scss";
 import { LoadingIndicator } from "./LoadingIndicator";
 export * from "./Message/Message";
@@ -14,9 +14,9 @@ interface Props {
     userId: string;
     onSend?: OnMessageSend;
     loadingSpinner?: JSX.Element;
+    buttons?: Partial<SendMessageButtons>;
 }
 
-}
 export const Chat: React.FunctionComponent<Props> = (props: Props) => {
     return (
         <div className={style.main}>
@@ -28,6 +28,7 @@ export const Chat: React.FunctionComponent<Props> = (props: Props) => {
                 <SendMessage
                     onSend={props.onSend}
                     loadingSpinner={props.loadingSpinner}
+                    buttons={props.buttons}
                 />
             </div>
         </div>
