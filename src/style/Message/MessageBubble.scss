@@ -10,16 +10,24 @@ div.message_container {
     flex-direction: row;
 
     .profile_picture {
-        max-width: 50px;
+        width: $buttonSize;
         margin-right: 26px;
 
         > img {
             max-width: 100%;
             border-radius: 50%;
         }
+
+        @include isMobile {
+            & {
+                width: $buttonSizeMobile;
+            }
+        }
     }
 
     .bubble_container {
+        flex: 1;
+
         div.message {
             max-width: 100%;
             word-wrap: break-word;
@@ -120,7 +128,8 @@ div.message_container {
 
     @include isMobile {
         & {
-            max-width: 80%;
+            max-width: 90%;
+            margin-bottom: 18px;
         }
     }
 }

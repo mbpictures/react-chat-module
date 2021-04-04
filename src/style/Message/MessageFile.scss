@@ -28,12 +28,22 @@
                 border-color: $grey_dark;
                 color: #FFFFFF;
             }
+
+            @include isMobile {
+                font-size: 20px;
+            }
         }
 
         > p {
             margin: 0 20px 0 5px;
             flex-grow: 1;
             word-break: break-word;
+
+            @include isMobile {
+                & {
+                    margin: 0 5px;
+                }
+            }
         }
 
         > .file {
@@ -42,6 +52,12 @@
             > .file_icon {
                 color: $grey_dark;
                 font-size: 50px;
+
+                @include isMobile {
+                    & {
+                        font-size:35px;
+                    }
+                }
             }
 
             > p {
@@ -53,6 +69,13 @@
                 top: 20px;
                 color: #FFFFFF;
                 font-size: 14px;
+
+                @include isMobile {
+                    & {
+                        font-size: 10px;
+                        top: 10px;
+                    }
+                }
             }
         }
     }

@@ -1,4 +1,5 @@
 @import "src/style/Colors";
+@import "src/style/Util.scss";
 
 div.message_container {
     width: 100%;
@@ -27,5 +28,11 @@ div.message_container {
     {
         background-color: $grey_dark;
         border-radius: 3px;
+    }
+
+    @include isMobile {
+        & {
+            padding: 10px;
+        }
     }
 }

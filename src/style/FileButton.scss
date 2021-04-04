@@ -3,6 +3,9 @@
 .file_button {
     @extend .button;
     position: relative;
+    /* OVERRIDE BUTTON SIZE */
+    width: 40px;
+    height: 40px;
 
     > input[type="file"] {
         display: none;

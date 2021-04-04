@@ -1,3 +1,12 @@
+$buttonSize: 40px;
+$buttonSizeMobile: 30px;
+
+@mixin isMobile {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
 .no-outline {
     outline: none;
     border-color: transparent;
@@ -11,8 +20,8 @@
 }
 
 .button {
-    height: 40px;
-    width: 40px;
+    height: $buttonSize;
+    width: $buttonSize;
     border-radius: 50%;
     outline: none;
     border: none;
@@ -22,10 +31,12 @@
     cursor: pointer;
     transition: .3s ease;
     @extend .no-outline;
-}
 
-@mixin isMobile {
-    @media (max-width: 768px) {
-        @content;
+    @include isMobile {
+        & {
+            width: $buttonSizeMobile;
+            height: $buttonSizeMobile;
+        }
     }
 }
+

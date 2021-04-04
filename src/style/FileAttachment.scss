@@ -9,6 +9,9 @@
         margin-left: 10px;
         @extend .button;
         background-color: $green;
+        /* OVERRIDE BUTTON SIZE */
+        width: 40px;
+        height: 40px;
 
         &:hover {
             background-color: $green_dark;
