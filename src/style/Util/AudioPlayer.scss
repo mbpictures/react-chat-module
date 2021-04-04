@@ -1,0 +1,76 @@
+@import "src/style/Util";
+@import "src/style/Colors";
+
+.audio_player {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 25px;
+
+    .button {
+        button {
+            @extend .button;
+            background-color: $blue;
+            color: #FFFFFF;
+            font-size: 20px;
+
+            &:hover {
+                background-color: $blue_dark;
+            }
+        }
+    }
+
+    .player {
+        flex: 1;
+        margin-left: 10px;
+
+        input[type=range] {
+            margin: 0 10px;
+
+            &::-webkit-slider-thumb {
+                background: $blue!important;
+                transition: .3s ease;
+                margin-top: -5px;
+            }
+
+            &::-moz-range-thumb {
+                background-color: $blue;
+                transition: .3s ease;
+            }
+
+            &::-ms-thumb {
+                background-color: $blue;
+                transition: .3s ease;
+            }
+
+            &::-webkit-slider-runnable-track {
+                background-color: $blue;
+                transition: .3s ease;
+                border-radius: 3px;
+                height: 6px;
+            }
+
+            &::-moz-range-track {
+                background-color: $blue;
+                transition: .3s ease;
+            }
+
+            &::-ms-track {
+                background-color: $blue;
+                transition: .3s ease;
+            }
+
+            &::-ms-fill-lower {
+                background-color: $blue;
+                transition: .3s ease;
+            }
+            &::-ms-fill-upper {
+                background-color: $blue;
+                transition: .3s ease;
+            }
+        }
+    }
+}
