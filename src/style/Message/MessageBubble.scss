@@ -1,4 +1,5 @@
 @import "src/style/Colors";
+@import "src/style/Util";
 
 div.message_container {
     max-width: 40%;
@@ -117,7 +118,7 @@ div.message_container {
         }
     }
 
-    @media (max-width: 768px) {
+    @include isMobile {
         & {
             max-width: 80%;
         }
