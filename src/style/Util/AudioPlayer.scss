@@ -26,50 +26,40 @@
     .player {
         flex: 1;
         margin-left: 10px;
+        display: flex;
+        align-items: center;
 
         input[type=range] {
             margin: 0 10px;
 
             &::-webkit-slider-thumb {
                 background: $blue!important;
-                transition: .3s ease;
                 margin-top: -5px;
             }
-
-            &::-moz-range-thumb {
-                background-color: $blue;
-                transition: .3s ease;
-            }
-
-            &::-ms-thumb {
-                background-color: $blue;
-                transition: .3s ease;
-            }
-
             &::-webkit-slider-runnable-track {
-                background-color: $blue;
-                transition: .3s ease;
                 border-radius: 3px;
                 height: 6px;
             }
 
-            &::-moz-range-track {
+            &::-moz-range-thumb {
                 background-color: $blue;
-                transition: .3s ease;
+            }
+            &::-moz-range-progress{
+                background-color: $blue;
+            }
+            &::-moz-range-track {
+                background-color: #FFFFFF;
             }
 
-            &::-ms-track {
+            &::-ms-thumb {
                 background-color: $blue;
-                transition: .3s ease;
             }
 
             &::-ms-fill-lower {
                 background-color: $blue;
-                transition: .3s ease;
             }
             &::-ms-fill-upper {
-                background-color: $blue;
-                transition: .3s ease;
+                background-color: #ffffff;
             }
         }
     }
