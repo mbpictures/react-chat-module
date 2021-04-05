@@ -1,6 +1,6 @@
 {
-  "short_name": "react-chat-library",
-  "name": "react-chat-library",
+  "short_name": "react-chat-module",
+  "name": "react-chat-module",
   "icons": [
     {
       "src": "favicon.ico",

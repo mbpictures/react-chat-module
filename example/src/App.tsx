@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import { Chat, ChatMessage, Message } from "react-chat-library";
-import "react-chat-library/dist/index.css";
+import { Chat, ChatMessage, Message } from "react-chat-module";
+import "react-chat-module/dist/index.css";
 
-declare module "react-chat-library" {
+declare module "react-chat-module" {
     export interface MessageTypeMap {
         test: "test";
     }

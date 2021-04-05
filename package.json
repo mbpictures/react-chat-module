@@ -1,10 +1,10 @@
 {
-  "name": "react-chat-library",
+  "name": "react-chat-module",
   "version": "1.0.0",
   "description": "Embed an easy to use, chat in your react application",
   "author": "Marius Butz",
   "license": "MIT",
-  "repository": "mbpictures/react-chat-library",
+  "repository": "mbpictures/react-chat-module",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
