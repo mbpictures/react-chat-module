@@ -1,10 +1,13 @@
-export type MessageType =
-    | "typing"
-    | "text"
-    | "image"
-    | "video"
-    | "file"
-    | "audio";
+export interface MessageTypeMap {
+    typing: "typing";
+    text: "text";
+    image: "image";
+    video: "video";
+    file: "file";
+    audio: "audio";
+};
+
+export type MessageType = MessageTypeMap[keyof MessageTypeMap];
 
 export interface Message {
     createdAt: Date;

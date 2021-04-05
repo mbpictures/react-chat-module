@@ -1,10 +1,11 @@
 import { ChatMessage, Message } from "../../Message/Message";
-import { MessageFactory } from "../../Message/MessageFactory";
+import { CustomFactories, MessageFactory } from "../../Message/MessageFactory";
 
 export class AttachmentPreviewFactory {
     static makeAttachmentPreview(
         message: Message,
-        blob?: string
+        blob?: string,
+        customFactories?: CustomFactories
     ): JSX.Element | null {
         if (!message.attachment || !blob) return null;
         const chatMessage: ChatMessage = Object.assign(
@@ -27,6 +28,7 @@ export class AttachmentPreviewFactory {
 
         return MessageFactory.makeInnerMessage(
             chatMessage,
+            customFactories,
             { hideDownload: true },
             true
         );

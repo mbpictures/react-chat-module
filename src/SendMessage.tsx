@@ -4,11 +4,13 @@ import style from "./style/SendMessage.scss";
 import { FileAttachment } from "./Attachment/FileAttachment";
 import { AttachmentPreview } from "./Attachment/AttachmentPreview/AttachmentPreview";
 import { Input } from "./Input";
+import { CustomFactories } from "./Message/MessageFactory";
 
 interface Props {
     onSend?: OnMessageSend;
     loadingSpinner?: JSX.Element;
     buttons?: Partial<SendMessageButtons>;
+    customFactories?: CustomFactories;
 }
 
 export interface SendMessageButtons {
@@ -38,6 +40,7 @@ export function SendMessage(props: Props) {
                     onCancel={onAttachmentPreviewClose}
                     onSend={props.onSend}
                     loadingSpinner={props.loadingSpinner}
+                    customFactories={props.customFactories}
                 />
             )}
         </div>

@@ -5,12 +5,14 @@ import { IoCloseOutline } from "react-icons/io5";
 import { Input } from "../../Input";
 import { AttachmentPreviewFactory } from "./AttachmentPreviewFactory";
 import { OnMessageSend } from "../../index";
+import { CustomFactories } from "../../Message/MessageFactory";
 
 interface Props {
     attachment: Message;
     onCancel: () => any;
     onSend?: OnMessageSend;
     loadingSpinner?: JSX.Element;
+    customFactories?: CustomFactories;
 }
 
 const arrayBufferToBase64 = (buffer: ArrayBuffer) => {
@@ -66,7 +68,8 @@ export function AttachmentPreview(props: Props) {
                 {file !== undefined &&
                     AttachmentPreviewFactory.makeAttachmentPreview(
                         props.attachment,
-                        file
+                        file,
+                        props.customFactories
                     )}
             </div>
             <div className={style.message}>

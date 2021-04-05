@@ -4,6 +4,7 @@ import { MessageContainer } from "./Message/MessageContainer";
 import { SendMessage, SendMessageButtons } from "./SendMessage";
 import style from "./style/Main.scss";
 import { LoadingIndicator } from "./LoadingIndicator";
+import { CustomFactories } from "./Message/MessageFactory";
 export * from "./Message/Message";
 export { MessageContainer };
 
@@ -15,6 +16,7 @@ interface Props {
     onSend?: OnMessageSend;
     loadingSpinner?: JSX.Element;
     buttons?: Partial<SendMessageButtons>;
+    customFactories?: CustomFactories;
 }
 
 export const Chat: React.FunctionComponent<Props> = (props: Props) => {
@@ -24,11 +26,13 @@ export const Chat: React.FunctionComponent<Props> = (props: Props) => {
                 <MessageContainer
                     userId={props.userId}
                     messages={props.messages}
+                    factoryOverride={props.customFactories}
                 />
                 <SendMessage
                     onSend={props.onSend}
                     loadingSpinner={props.loadingSpinner}
                     buttons={props.buttons}
+                    customFactories={props.customFactories}
                 />
             </div>
         </div>
