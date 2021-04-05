@@ -1,12 +1,10 @@
-import React from "react";
-import { ChatMessage } from "../Message";
+import React, { FunctionComponent } from "react";
 import { AudioPlayer } from "../../Util/AudioPlayer";
+import { MessageProp } from "../MessageFactory";
 
-interface Props {
-    message: ChatMessage;
-}
-
-export function MessageAudio(props: Props): JSX.Element | null {
+export const MessageAudio: FunctionComponent<MessageProp> = (
+    props: MessageProp
+) => {
     if (!props.message.audio) return null;
     return <AudioPlayer file={props.message.audio} />;
-}
+};

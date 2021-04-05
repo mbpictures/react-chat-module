@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import style from "../../style/AttachmentPreview.scss";
 import { Message } from "../../Message/Message";
 import { IoCloseOutline } from "react-icons/io5";
@@ -25,7 +25,7 @@ const arrayBufferToBase64 = (buffer: ArrayBuffer) => {
     return window.btoa(binary);
 };
 
-export function AttachmentPreview(props: Props) {
+export const AttachmentPreview: FunctionComponent<Props> = (props: Props) => {
     const [file, setFile] = useState<string | undefined>(undefined);
 
     useEffect(() => {
@@ -77,4 +77,4 @@ export function AttachmentPreview(props: Props) {
             </div>
         </div>
     );
-}
+};

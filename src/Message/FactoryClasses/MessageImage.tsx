@@ -1,11 +1,7 @@
 import React from "react";
-import { ChatMessage } from "../Message";
 import style from "../../style/Message/MessagePhoto.scss";
+import { MessageProp } from "../MessageFactory";
 
-interface Props {
-    message: ChatMessage;
-}
-
-export function MessageImage(props: Props): JSX.Element {
+export const MessageImage = (props: MessageProp) => {
     return <img className={style.photo} src={props.message.photo} />;
-}
+};

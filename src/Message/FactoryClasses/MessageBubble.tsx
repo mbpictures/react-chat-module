@@ -1,14 +1,13 @@
-import React, { createRef, useEffect, useState } from "react";
+import React, { createRef, FunctionComponent, useEffect, useState } from "react";
 import style from "../../style/Message/MessageBubble.scss";
-import { ChatMessage } from "../Message";
+import { MessageProp } from "../MessageFactory";
 
-interface Props {
+interface Props extends MessageProp {
     children?: JSX.Element | null;
     userId: string;
-    message: ChatMessage;
 }
 
-export function MessageBubble(props: Props) {
+export const MessageBubble: FunctionComponent<Props> = (props: Props) => {
     const containerRef = createRef<HTMLDivElement>();
     const [messageRead, setMessageRead] = useState<boolean>();
 
@@ -54,4 +53,4 @@ export function MessageBubble(props: Props) {
             </div>
         </div>
     );
-}
+};

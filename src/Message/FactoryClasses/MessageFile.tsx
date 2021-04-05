@@ -1,14 +1,13 @@
-import React from "react";
-import { ChatMessage } from "../Message";
+import React, { FunctionComponent } from "react";
 import { IoDownloadOutline, IoDocument } from "react-icons/io5";
 import style from "../../style/Message/MessageFile.scss";
+import { MessageProp } from "../MessageFactory";
 
-interface Props {
-    message: ChatMessage;
+interface Props extends MessageProp {
     hideDownload?: boolean;
 }
 
-export function MessageFile(props: Props): JSX.Element {
+export const MessageFile: FunctionComponent<Props> = (props: Props) => {
     return (
         <div className={style.message_file_container}>
             <div className={style.message_file}>
@@ -27,4 +26,4 @@ export function MessageFile(props: Props): JSX.Element {
             </div>
         </div>
     );
-}
+};

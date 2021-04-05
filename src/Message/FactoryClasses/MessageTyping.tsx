@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import style from "../../style/Message/MessageTyping.scss";
 
-export function MessageTyping(): JSX.Element {
+export const MessageTyping: FunctionComponent = () => {
     return (
         <div className={style.typing}>
             <span />
@@ -9,4 +9,4 @@ export function MessageTyping(): JSX.Element {
             <span />
         </div>
     );
-}
+};

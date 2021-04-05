@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import style from "../style/FileButton.scss";
 import { FileType } from "./FileAttachment";
 import { Message } from "../Message/Message";
@@ -18,8 +18,8 @@ const FileTypeRegex: Record<FileType, string> = {
     any: ".*",
 };
 
-export function FileButton(props: Props): JSX.Element {
-    const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+export const FileButton: FunctionComponent<Props> = (props: Props) => {
+    const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>): void => {
         const file =
             event.target.files !== null && event.target.files.length > 0
                 ? event.target.files[0]
@@ -56,4 +56,4 @@ export function FileButton(props: Props): JSX.Element {
             {props.children}
         </label>
     );
-}
+};

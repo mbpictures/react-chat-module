@@ -1,5 +1,5 @@
 import { Message, OnMessageSend } from "./index";
-import React, { useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import style from "./style/SendMessage.scss";
 import { FileAttachment } from "./Attachment/FileAttachment";
 import { AttachmentPreview } from "./Attachment/AttachmentPreview/AttachmentPreview";
@@ -17,7 +17,7 @@ export interface SendMessageButtons {
     send: JSX.Element;
 }
 
-export function SendMessage(props: Props) {
+export const SendMessage: FunctionComponent<Props> = (props: Props) => {
     const [attachmentMessage, setAttachmentMessage] = useState<Message | null>(
         null
     );
@@ -45,4 +45,4 @@ export function SendMessage(props: Props) {
             )}
         </div>
     );
-}
+};

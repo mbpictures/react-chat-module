@@ -6,7 +6,7 @@ import {
     IoImageOutline,
     IoMusicalNotesOutline,
 } from "react-icons/io5";
-import React, { useRef, useState } from "react";
+import React, { FunctionComponent, useRef, useState } from "react";
 import style from "../style/FileAttachment.scss";
 import { FileButton } from "./FileButton";
 import { Message } from "../Message/Message";
@@ -38,7 +38,7 @@ interface Props {
     onSelectFile: (file: Message) => any;
 }
 
-export function FileAttachment(props: Props) {
+export const FileAttachment: FunctionComponent<Props> = (props: Props) => {
     const [popupOpen, setPopupOpen] = useState<boolean>(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -91,4 +91,4 @@ export function FileAttachment(props: Props) {
             )}
         </div>
     );
-}
+};

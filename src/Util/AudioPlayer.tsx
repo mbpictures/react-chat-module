@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import style from "../style/Util/AudioPlayer.scss";
 import { IoPause, IoPlaySharp } from "react-icons/io5";
 
@@ -16,7 +16,7 @@ const formatTime = (time: number): string => {
     )}`;
 };
 
-export function AudioPlayer(props: Props) {
+export const AudioPlayer: FunctionComponent<Props> = (props: Props) => {
     const [playing, setPlaying] = useState<boolean>(false);
     const [audioEl, setAudioEl] = useState<HTMLAudioElement | undefined>(
         undefined
@@ -96,4 +96,4 @@ export function AudioPlayer(props: Props) {
             </div>
         </div>
     );
-}
+};

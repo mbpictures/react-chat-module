@@ -1,4 +1,4 @@
-import React, { createRef } from "react";
+import React, { createRef, FunctionComponent } from "react";
 import { OnMessageSend } from "./index";
 import style from "./style/Input.scss";
 import { SendButtonRenderer } from "./Renderer/SendButtonRenderer";
@@ -9,7 +9,7 @@ interface Props {
     sendButton?: JSX.Element;
 }
 
-export const Input: React.FunctionComponent<Props> = (props: Props) => {
+export const Input: FunctionComponent<Props> = (props: Props) => {
     const inputField = createRef<HTMLTextAreaElement>();
 
     const handleSend = () => {

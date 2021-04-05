@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import style from "./style/LoadingIndicator.scss";
 
-export function LoadingIndicator() {
+export const LoadingIndicator: FunctionComponent = () => {
     return (
         <div className={style.holder}>
             <div className={style.sk_chase}>
@@ -14,4 +14,4 @@ export function LoadingIndicator() {
             </div>
         </div>
     );
-}
+};
