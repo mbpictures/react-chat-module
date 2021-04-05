@@ -1,6 +1,12 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { Chat, ChatMessage, Message } from "react-chat-library";
 import "react-chat-library/dist/index.css";
+
+declare module "react-chat-library" {
+    export interface MessageTypeMap {
+        test: "test";
+    }
+}
 
 const loadFile = (file: File): Promise<string> => {
     return new Promise<string>((resolve, reject) => {
@@ -22,6 +28,10 @@ const loadFile = (file: File): Promise<string> => {
         reader.onabort = reject;
     });
 };
+
+const testComponent: FunctionComponent<{message: ChatMessage}> = () => {
+    return <div>Test</div>;
+}
 
 const App = () => {
     // add initial set of example messages
@@ -88,6 +98,13 @@ const App = () => {
             profilePicture: "https://via.placeholder.com/150",
             audio: "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3",
             type: "audio"
+        },
+        {
+            createdAt: new Date(Date.now() + 6000),
+            messageId: "7",
+            senderId: "2",
+            profilePicture: "https://via.placeholder.com/150",
+            type: "test"
         }
     ]);
 
@@ -140,7 +157,12 @@ const App = () => {
     // adding chat component in full screen container
     return (
         <div style={{width: "100%", height: "100%", overflow: "hidden"}}>
-            <Chat messages={messages} userId={"1"} onSend={onSend} />
+            <Chat messages={messages} userId={"1"} onSend={onSend} customFactories={{
+                test: {
+                    hasText: false,
+                    factory: testComponent
+                }
+            }} />
         </div>
     );
 }
