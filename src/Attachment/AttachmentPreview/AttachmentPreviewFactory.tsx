@@ -1,5 +1,6 @@
 import { ChatMessage, Message } from "../../Message/Message";
 import { CustomFactories, MessageFactory } from "../../Message/MessageFactory";
+import React from "react";
 
 export class AttachmentPreviewFactory {
     static makeAttachmentPreview(
@@ -26,11 +27,13 @@ export class AttachmentPreviewFactory {
         chatMessage.photo = blob;
         chatMessage.video = blob;
 
-        return MessageFactory.makeInnerMessage(
-            chatMessage,
-            customFactories,
-            { hideDownload: true },
-            true
+        return (
+            <MessageFactory
+                message={chatMessage}
+                customFactories={customFactories}
+                additionalProps={{ hideDownload: true }}
+                disableText
+            />
         );
     }
 }

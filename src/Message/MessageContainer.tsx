@@ -1,6 +1,6 @@
 import { ChatMessage } from "./Message";
 import React from "react";
-import { CustomFactories, MessageFactory } from "./MessageFactory";
+import { CustomFactories, MessageFactoryBubble } from "./MessageFactory";
 import style from "../style/Message/MessageContainer.scss";
 
 interface Props {
@@ -74,13 +74,14 @@ export class MessageContainer extends React.Component<Props, State> {
     }
 
     render() {
-        const messages = this.props.messages.map((message) =>
-            MessageFactory.makeMessage(
-                message,
-                this.props.userId,
-                this.props.factoryOverride
-            )
-        );
+        const messages = this.props.messages.map((message) => (
+            <MessageFactoryBubble
+                key={message.messageId}
+                message={message}
+                userId={this.props.userId}
+                customFactories={this.props.factoryOverride}
+            />
+        ));
         return (
             <div className={style.message_container}>
                 {messages}
