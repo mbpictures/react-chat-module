@@ -11,6 +11,7 @@ interface Props {
     loadingSpinner?: JSX.Element;
     buttons?: Partial<SendMessageButtons>;
     customFactories?: CustomFactories;
+    disableAttachments?: boolean;
 }
 
 export interface SendMessageButtons {
@@ -33,7 +34,9 @@ export const SendMessage: FunctionComponent<Props> = (props: Props) => {
     return (
         <div className={style.message_container}>
             <Input onSend={props.onSend} sendButton={props.buttons?.send} />
-            <FileAttachment onSelectFile={onFileChanged} />
+            {!props.disableAttachments && (
+                <FileAttachment onSelectFile={onFileChanged} />
+            )}
             {attachmentMessage && (
                 <AttachmentPreview
                     attachment={attachmentMessage}
@@ -45,4 +48,8 @@ export const SendMessage: FunctionComponent<Props> = (props: Props) => {
             )}
         </div>
     );
+};
+
+SendMessage.defaultProps = {
+    disableAttachments: false,
 };

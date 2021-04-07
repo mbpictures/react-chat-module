@@ -17,6 +17,7 @@ interface Props {
     loadingSpinner?: JSX.Element;
     buttons?: Partial<SendMessageButtons>;
     customFactories?: CustomFactories;
+    disableAttachments?: boolean;
 }
 
 export const Chat: React.FunctionComponent<Props> = (props: Props) => {
@@ -33,6 +34,7 @@ export const Chat: React.FunctionComponent<Props> = (props: Props) => {
                     loadingSpinner={props.loadingSpinner}
                     buttons={props.buttons}
                     customFactories={props.customFactories}
+                    disableAttachments={props.disableAttachments}
                 />
             </div>
         </div>
