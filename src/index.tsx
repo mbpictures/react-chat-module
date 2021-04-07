@@ -5,6 +5,7 @@ import { SendMessage, SendMessageButtons } from "./SendMessage";
 import style from "./style/Main.scss";
 import { LoadingIndicator } from "./LoadingIndicator";
 import { CustomFactories } from "./Message/MessageFactory";
+import { FileType } from "./Attachment/FileAttachment";
 export * from "./Message/Message";
 export { MessageContainer };
 
@@ -18,6 +19,7 @@ interface Props {
     buttons?: Partial<SendMessageButtons>;
     customFactories?: CustomFactories;
     disableAttachments?: boolean;
+    attachmentFileTypes?: Array<FileType>;
 }
 
 export const Chat: React.FunctionComponent<Props> = (props: Props) => {
@@ -35,6 +37,7 @@ export const Chat: React.FunctionComponent<Props> = (props: Props) => {
                     buttons={props.buttons}
                     customFactories={props.customFactories}
                     disableAttachments={props.disableAttachments}
+                    attachmentFileTypes={props.attachmentFileTypes}
                 />
             </div>
         </div>

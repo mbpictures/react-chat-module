@@ -1,7 +1,7 @@
 import { Message, OnMessageSend } from "./index";
 import React, { FunctionComponent, useState } from "react";
 import style from "./style/SendMessage.scss";
-import { FileAttachment } from "./Attachment/FileAttachment";
+import { FileAttachment, FileType } from "./Attachment/FileAttachment";
 import { AttachmentPreview } from "./Attachment/AttachmentPreview/AttachmentPreview";
 import { Input } from "./Input";
 import { CustomFactories } from "./Message/MessageFactory";
@@ -12,6 +12,7 @@ interface Props {
     buttons?: Partial<SendMessageButtons>;
     customFactories?: CustomFactories;
     disableAttachments?: boolean;
+    attachmentFileTypes?: Array<FileType>;
 }
 
 export interface SendMessageButtons {
@@ -35,7 +36,10 @@ export const SendMessage: FunctionComponent<Props> = (props: Props) => {
         <div className={style.message_container}>
             <Input onSend={props.onSend} sendButton={props.buttons?.send} />
             {!props.disableAttachments && (
-                <FileAttachment onSelectFile={onFileChanged} />
+                <FileAttachment
+                    onSelectFile={onFileChanged}
+                    attachmentFileTypes={props.attachmentFileTypes}
+                />
             )}
             {attachmentMessage && (
                 <AttachmentPreview

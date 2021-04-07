@@ -36,6 +36,7 @@ export const FileTypeIcons: Record<FileType, JSX.Element> = {
 
 interface Props {
     onSelectFile: (file: Message) => any;
+    attachmentFileTypes?: Array<FileType>;
 }
 
 export const FileAttachment: FunctionComponent<Props> = (props: Props) => {
@@ -57,7 +58,9 @@ export const FileAttachment: FunctionComponent<Props> = (props: Props) => {
 
     const classNamesPopup = `${style.popup} ${popupOpen ? style.open : ""}`;
 
-    const fileButtons = FileTypes.map((type) => {
+    if (!props.attachmentFileTypes) return null;
+
+    const fileButtons = props.attachmentFileTypes.map((type) => {
         return (
             <FileButton
                 fileType={type}
@@ -91,4 +94,8 @@ export const FileAttachment: FunctionComponent<Props> = (props: Props) => {
             )}
         </div>
     );
+};
+
+FileAttachment.defaultProps = {
+    attachmentFileTypes: FileTypes.map((value) => value as FileType),
 };
