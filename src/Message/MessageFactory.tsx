@@ -44,6 +44,33 @@ type CreateFactoryInstanceFunction = (
     customFactories?: CustomFactories
 ) => FactoryInstance;
 
+const DefaultFactories: CustomFactories = {
+    typing: {
+        hasText: false,
+        factory: MessageTyping,
+    },
+    text: {
+        hasText: false,
+        factory: MessageText,
+    },
+    image: {
+        hasText: true,
+        factory: MessageImage,
+    },
+    video: {
+        hasText: true,
+        factory: MessageVideo,
+    },
+    audio: {
+        hasText: true,
+        factory: MessageAudio,
+    },
+    file: {
+        hasText: true,
+        factory: MessageFile,
+    },
+};
+
 export const CreateDynamicFactoryInstance: CreateFactoryInstanceFunction = (
     message,
     additionalProps?,
@@ -61,60 +88,23 @@ export const CreateDynamicFactoryInstance: CreateFactoryInstanceFunction = (
     };
 };
 
-export const CreateFactoryInstance: CreateFactoryInstanceFunction = (
-    message,
-    additionalProps
-) => {
-    if (message.type === "typing") {
-        return {
-            element: <MessageTyping />,
-            hasText: false,
-        };
-    }
-    if (message.type === "text") {
-        return {
-            element: <MessageText message={message} {...additionalProps} />,
-            hasText: false,
-        };
-    }
-    if (message.type === "image")
-        return {
-            element: <MessageImage message={message} {...additionalProps} />,
-            hasText: true,
-        };
-    if (message.type === "video")
-        return {
-            element: <MessageVideo message={message} {...additionalProps} />,
-            hasText: true,
-        };
-    if (message.type === "audio")
-        return {
-            element: <MessageAudio message={message} {...additionalProps} />,
-            hasText: true,
-        };
-    if (message.type === "file")
-        return {
-            element: <MessageFile message={message} {...additionalProps} />,
-            hasText: true,
-        };
-
-    console.warn("Debug: Using custom message type without factory!");
-    return null;
-};
-
 export const MessageFactory: FunctionComponent<PropsInner> = (
     props: PropsInner
 ) => {
     const { customFactories, additionalProps, disableText } = props;
 
-    const factoryInstance =
-        CreateDynamicFactoryInstance(
-            props.message,
-            additionalProps,
-            customFactories
-        ) || CreateFactoryInstance(props.message, additionalProps);
+    const factoryClasses = { ...DefaultFactories, ...customFactories };
 
-    if (!factoryInstance) return null;
+    const factoryInstance = CreateDynamicFactoryInstance(
+        props.message,
+        additionalProps,
+        factoryClasses
+    );
+
+    if (!factoryInstance) {
+        console.warn("Debug: Using custom message type without factory!");
+        return null;
+    }
 
     const message = Object.assign({}, props.message);
     message.type = "text";
