@@ -4,10 +4,9 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![ts](https://badgen.net/badge/-/TypeScript?icon=typescript&label&labelColor=blue&color=555555)](http://typescriptlang.org/)
 
-> Embed an easy to use, highly customizable chat in your React app! Optimized for mobile and desktop applications.
+> Embed an easy to use, highly customizable chat in your React app! Optimized for mobile and desktop applications. [Live Demo](http://projects.marius-butz.de/react-chat)
 
 ![Demo](https://user-images.githubusercontent.com/2772553/114227151-e14b5a00-9974-11eb-8ae5-fdf6d2d6603c.gif)
-
 
 ## Install
 
