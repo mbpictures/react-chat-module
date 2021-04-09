@@ -1,6 +1,6 @@
 {
   "name": "react-chat-module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Embed an easy to use, chat in your react application",
   "author": "Marius Butz",
   "license": "MIT",
@@ -9,6 +9,7 @@
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
   "types": "dist/index.d.ts",
+  "keywords": ["react", "chat", "module", "library", "component", "scss", "factory", "message", "messenger"],
   "engines": {
     "node": ">=10"
   },
