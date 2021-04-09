@@ -9,7 +9,17 @@
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
   "types": "dist/index.d.ts",
-  "keywords": ["react", "chat", "module", "library", "component", "scss", "factory", "message", "messenger"],
+  "keywords": [
+    "react",
+    "chat",
+    "module",
+    "library",
+    "component",
+    "scss",
+    "factory",
+    "message",
+    "messenger"
+  ],
   "engines": {
     "node": ">=10"
   },
