@@ -6,6 +6,9 @@
 
 > Embed an easy to use, highly customizable chat in your React app! Optimized for mobile and desktop applications.
 
+![Demo](https://user-images.githubusercontent.com/2772553/114227151-e14b5a00-9974-11eb-8ae5-fdf6d2d6603c.gif)
+
+
 ## Install
 
 ```bash
