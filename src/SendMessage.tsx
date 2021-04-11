@@ -13,6 +13,7 @@ interface Props {
     customFactories?: CustomFactories;
     disableAttachments?: boolean;
     attachmentFileTypes?: Array<FileType>;
+    isUploading?: boolean;
 }
 
 export interface SendMessageButtons {
@@ -39,6 +40,8 @@ export const SendMessage: FunctionComponent<Props> = (props: Props) => {
                 <FileAttachment
                     onSelectFile={onFileChanged}
                     attachmentFileTypes={props.attachmentFileTypes}
+                    loadingSpinner={props.loadingSpinner}
+                    isUploading={props.isUploading}
                 />
             )}
             {attachmentMessage && (

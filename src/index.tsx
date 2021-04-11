@@ -20,6 +20,7 @@ interface Props {
     customFactories?: CustomFactories;
     disableAttachments?: boolean;
     attachmentFileTypes?: Array<FileType>;
+    isUploading?: boolean;
 }
 
 export const Chat: React.FunctionComponent<Props> = (props: Props) => {
@@ -38,6 +39,7 @@ export const Chat: React.FunctionComponent<Props> = (props: Props) => {
                     customFactories={props.customFactories}
                     disableAttachments={props.disableAttachments}
                     attachmentFileTypes={props.attachmentFileTypes}
+                    isUploading={props.isUploading}
                 />
             </div>
         </div>

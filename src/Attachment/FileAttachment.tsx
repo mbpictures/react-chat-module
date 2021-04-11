@@ -5,6 +5,7 @@ import {
     IoFilmOutline,
     IoImageOutline,
     IoMusicalNotesOutline,
+    IoCloudUpload,
 } from "react-icons/io5";
 import React, { FunctionComponent, useRef, useState } from "react";
 import style from "../style/FileAttachment.scss";
@@ -37,6 +38,8 @@ export const FileTypeIcons: Record<FileType, JSX.Element> = {
 interface Props {
     onSelectFile: (file: Message) => any;
     attachmentFileTypes?: Array<FileType>;
+    isUploading?: boolean;
+    loadingSpinner?: JSX.Element;
 }
 
 export const FileAttachment: FunctionComponent<Props> = (props: Props) => {
@@ -84,6 +87,14 @@ export const FileAttachment: FunctionComponent<Props> = (props: Props) => {
                 </button>
                 <div className={classNamesPopup} ref={wrapperRef}>
                     {fileButtons}
+                </div>
+                <div
+                    className={`${style.uploadingOverlay} ${
+                        props.isUploading ? style.open : ""
+                    }`}
+                >
+                    {props.loadingSpinner}
+                    <IoCloudUpload size={20} className={style.icon} />
                 </div>
             </div>
             {popupOpen && (

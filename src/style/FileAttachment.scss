@@ -56,6 +56,45 @@
             }
         }
     }
+
+    .uploadingOverlay {
+        position: absolute;
+        transform-origin: right bottom;
+        top: -15px;
+        right: 0;
+        transform: translateY(-100%) scaleY(0);
+        background-color: $grey;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        transition: .3s ease;
+
+        &.open {
+            transform: translateY(-100%) scaleY(1);
+        }
+
+        > .icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+
+            border-top: 20px solid $grey;
+            position: absolute;
+            bottom: -10px;
+            right: 2px;
+        }
+    }
 }
 
 .blocker {
