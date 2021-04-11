@@ -23,7 +23,7 @@
         transform-origin: right bottom;
         top: 0;
         right: 0;
-        transform: translateY(-100%) scaleY(0);
+        transform: translateY(-100%);
         transition: .3s ease;
         z-index: 10000;
         border-radius: 50%;
@@ -32,10 +32,16 @@
         justify-content: flex-start;
 
         &.open {
-            transform: translateY(-100%) scaleY(1);
+            transform: translateY(-100%);
 
-            & * {
+            & > * {
                 transform: scale(1);
+
+                @for $i from 1 through 6 {
+                    &:nth-child(#{7- $i}) {
+                        transition-delay: 50ms * $i;
+                    }
+                }
             }
         }
 
@@ -44,7 +50,7 @@
             transform: scale(0);
 
             @for $i from 1 through 6 {
-                &:nth-child(#{7 - $i}) {
+                &:nth-child(#{$i}) {
                     transition-delay: 50ms * $i;
                 }
             }
