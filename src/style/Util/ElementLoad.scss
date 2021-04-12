@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    justify-content: center;
+
+    > .loader {
+        margin: 10px 0;
+    }
+}
