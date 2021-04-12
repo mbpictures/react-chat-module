@@ -1,25 +1,29 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 import style from "../../style/Message/MessagePhoto.scss";
 import { MessageProp } from "../MessageFactory";
 import { ElementLoad } from "../../Util/ElementLoad";
 
 const MessageImageInternal: FunctionComponent<MessageProp> = (props) => {
     const [loaded, setLoaded] = useState(false);
+    const imageRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
-        setLoaded(false);
-    }, [props.message]);
-
-    const onLoad = () => {
-        setLoaded(true);
-    };
+        if (!imageRef.current) return;
+        if (imageRef.current.complete) {
+            setLoaded(true);
+            return;
+        }
+        imageRef.current.onload = (): void => {
+            setLoaded(true);
+        };
+    }, [props.message, imageRef]);
 
     return (
         <ElementLoad loaded={loaded} loadingSpinner={props.loadingSpinner}>
             <img
                 className={style.photo}
                 src={props.message.photo}
-                onLoad={onLoad}
+                ref={imageRef}
             />
         </ElementLoad>
     );
