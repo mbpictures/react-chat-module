@@ -7,7 +7,7 @@ interface Props extends MessageProp {
     hideDownload?: boolean;
 }
 
-export const MessageFile: FunctionComponent<Props> = (props: Props) => {
+const MessageFileInternal: FunctionComponent<Props> = (props: Props) => {
     return (
         <div className={style.message_file_container}>
             <div className={style.message_file}>
@@ -27,3 +27,5 @@ export const MessageFile: FunctionComponent<Props> = (props: Props) => {
         </div>
     );
 };
+
+export const MessageFile = React.memo(MessageFileInternal);

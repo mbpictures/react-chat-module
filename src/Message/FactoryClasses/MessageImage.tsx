@@ -3,7 +3,7 @@ import style from "../../style/Message/MessagePhoto.scss";
 import { MessageProp } from "../MessageFactory";
 import { ElementLoad } from "../../Util/ElementLoad";
 
-export const MessageImage: FunctionComponent<MessageProp> = (props) => {
+const MessageImageInternal: FunctionComponent<MessageProp> = (props) => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
@@ -24,3 +24,5 @@ export const MessageImage: FunctionComponent<MessageProp> = (props) => {
         </ElementLoad>
     );
 };
+
+export const MessageImage = React.memo(MessageImageInternal);
