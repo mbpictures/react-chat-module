@@ -76,12 +76,14 @@ A full example can be found [here](example/src/App.tsx).
 | customFactories       | [CustomFactories](#custom-factories)  | ```undefined```           | Extend or override the built in message type factories
 | disableAttachments    | ```boolean```                         | ```false```               | Remove the send attachment button and the functionality to send attachments
 | attachmentFileTypes   | ```Array<FileType>```                 | all available file types  | Provide an array with a subset of available file types (e.g. only support uploading of images, videos and audio files)
+| isUploading           | ```boolean```                         | ```false```               | Display an upload indicator, useful while uploading an attachment
 
 ### Custom factories
 To override or extend the functionality of the existing message types, you can provide an object with React components, which will be used instead of the built-in ones.
 The only thing you have to do is, to provide an object with type names (typing, text, image, video, audio, file) and as value an object with
 a ```hasText``` element (renders ```text``` element of ```ChatMessage```) and ```factory``` which is a reference to the component you want to render.
-The ```ChatMessage``` is provided as a prop ```message```.
+The ```ChatMessage``` is provided as a prop ```message```. The loading spinner (either custom or default one) is provided as the ```loadingSpinner``` prop and is useful when you want to hide
+loading of visuals (e.g. images).
 
 ### Custom factories with TypeScript
 If you want to use TypeScript and add a new message type, you need to declare it first. You can simply use the following snippet to add
