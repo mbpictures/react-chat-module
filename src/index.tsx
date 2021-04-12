@@ -31,6 +31,7 @@ export const Chat: React.FunctionComponent<Props> = (props: Props) => {
                     userId={props.userId}
                     messages={props.messages}
                     factoryOverride={props.customFactories}
+                    loadingSpinner={props.loadingSpinner}
                 />
                 <SendMessage
                     onSend={props.onSend}

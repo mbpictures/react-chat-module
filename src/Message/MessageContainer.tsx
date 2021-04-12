@@ -7,6 +7,7 @@ interface Props {
     messages: Array<ChatMessage>;
     userId: string;
     factoryOverride?: CustomFactories;
+    loadingSpinner?: JSX.Element;
 }
 
 interface State {
@@ -80,6 +81,7 @@ export class MessageContainer extends React.Component<Props, State> {
                 message={message}
                 userId={this.props.userId}
                 customFactories={this.props.factoryOverride}
+                additionalProps={{ loadingSpinner: this.props.loadingSpinner }}
             />
         ));
         return (

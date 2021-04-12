@@ -10,6 +10,7 @@ import { MessageAudio } from "./FactoryClasses/MessageAudio";
 
 export interface MessageProp {
     message: ChatMessage;
+    loadingSpinner: JSX.Element | null;
 }
 
 export interface CustomFactory {
@@ -80,6 +81,7 @@ export const CreateDynamicFactoryInstance: CreateFactoryInstanceFunction = (
     const Component = customFactories[message.type].factory;
     const element = React.createElement(Component, {
         message: message,
+        loadingSpinner: null,
         ...additionalProps,
     });
     return {
@@ -132,10 +134,12 @@ export const MessageFactoryBubble: FunctionComponent<Props> = (
             userId={props.userId}
             message={props.message}
             key={props.message.messageId}
+            loadingSpinner={null}
         >
             <MessageFactory
                 message={props.message}
                 customFactories={props.customFactories}
+                additionalProps={props.additionalProps}
             />
         </MessageBubble>
     );
