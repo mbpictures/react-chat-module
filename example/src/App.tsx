@@ -105,7 +105,16 @@ const App = () => {
             senderId: "2",
             profilePicture: "https://via.placeholder.com/150",
             type: "test"
-        }
+        },
+        {
+            createdAt: new Date(Date.now() + 6000),
+            messageId: "9",
+            senderId: "1",
+            profilePicture: "https://via.placeholder.com/150",
+            photo: "http://unsplash.s3.amazonaws.com/batch%203/www.madebyvadim.com.jpg",
+            type: "image",
+            text: "Look at this funny image!"
+        },
     ]);
 
     const onSend = async (message: Message) => {
