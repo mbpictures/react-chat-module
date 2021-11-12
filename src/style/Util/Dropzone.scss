@@ -1,0 +1,20 @@
+@import "src/style/Colors";
+
+.dropzone {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    left: 0;
+    transition: .3s ease;
+    border: 5px dotted $grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    box-sizing: border-box;
+
+    &.open {
+        top: 0;
+    }
+}

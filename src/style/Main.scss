@@ -6,6 +6,7 @@
     right: 0;
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
 
     > .container {
         flex-grow: 1;

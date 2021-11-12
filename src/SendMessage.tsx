@@ -1,5 +1,5 @@
 import { Message, OnMessageSend } from "./index";
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import style from "./style/SendMessage.scss";
 import { FileAttachment, FileType } from "./Attachment/FileAttachment";
 import { AttachmentPreview } from "./Attachment/AttachmentPreview/AttachmentPreview";
@@ -14,6 +14,7 @@ interface Props {
     disableAttachments?: boolean;
     attachmentFileTypes?: Array<FileType>;
     isUploading?: boolean;
+    dropAttachment?: Message;
 }
 
 export interface SendMessageButtons {
@@ -24,6 +25,11 @@ export const SendMessage: FunctionComponent<Props> = (props: Props) => {
     const [attachmentMessage, setAttachmentMessage] = useState<Message | null>(
         null
     );
+
+    useEffect(() => {
+        if (!props.dropAttachment) return;
+        setAttachmentMessage(props.dropAttachment);
+    }, [props.dropAttachment]);
 
     const onFileChanged = (file: Message) => {
         setAttachmentMessage(file);

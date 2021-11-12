@@ -6,6 +6,7 @@ import style from "./style/Main.scss";
 import { LoadingIndicator } from "./LoadingIndicator";
 import { CustomFactories } from "./Message/MessageFactory";
 import { FileType } from "./Attachment/FileAttachment";
+import { useDropzone } from "./Util/Dropzone";
 export * from "./Message/Message";
 export { MessageContainer };
 
@@ -24,8 +25,10 @@ interface Props {
 }
 
 export const Chat: React.FunctionComponent<Props> = (props: Props) => {
+    const { dropzoneContainerProps, feedbackContainer } = useDropzone();
+
     return (
-        <div className={style.main}>
+        <div className={style.main} {...dropzoneContainerProps}>
             <div className={style.container}>
                 <MessageContainer
                     userId={props.userId}
@@ -43,6 +46,7 @@ export const Chat: React.FunctionComponent<Props> = (props: Props) => {
                     isUploading={props.isUploading}
                 />
             </div>
+            {feedbackContainer}
         </div>
     );
 };
