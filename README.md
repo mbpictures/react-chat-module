@@ -62,21 +62,21 @@ function Example() {
         ]);
     }
 
-    return <Chat userId={"1"} messages={exampleMessages} handleSend={handleSend} />
+    return <Chat userId={"1"} messages={exampleMessages} onSend={handleSend} />
 }
 ```
 
 A full example can be found [here](example/src/App.tsx).
 
 ## Customization
-| props                 | type                                  |  default                  | descriptions
-| ---------             | ------------------------------------- | -----------               | ------------
-| loadingSpinner        | ```JSX.Element```                     | built in Loading spinner  | Override the built in default Loading Spinner which is used while loading the attachment preview
-| buttons               | [SendMessageButtons]()                | ```undefined```           | Override the built in buttons
-| customFactories       | [CustomFactories](#custom-factories)  | ```undefined```           | Extend or override the built in message type factories
-| disableAttachments    | ```boolean```                         | ```false```               | Remove the send attachment button and the functionality to send attachments
-| attachmentFileTypes   | ```Array<FileType>```                 | all available file types  | Provide an array with a subset of available file types (e.g. only support uploading of images, videos and audio files)
-| isUploading           | ```boolean```                         | ```false```               | Display an upload indicator, useful while uploading an attachment
+| props               | type                                 | default                  | descriptions                                                                                                           |
+| ------------------- | ------------------------------------ | ------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| loadingSpinner      | ```JSX.Element```                    | built in Loading spinner | Override the built in default Loading Spinner which is used while loading the attachment preview                       |
+| buttons             | [SendMessageButtons]()               | ```undefined```          | Override the built in buttons                                                                                          |
+| customFactories     | [CustomFactories](#custom-factories) | ```undefined```          | Extend or override the built in message type factories                                                                 |
+| disableAttachments  | ```boolean```                        | ```false```              | Remove the send attachment button and the functionality to send attachments                                            |
+| attachmentFileTypes | ```Array<FileType>```                | all available file types | Provide an array with a subset of available file types (e.g. only support uploading of images, videos and audio files) |
+| isUploading         | ```boolean```                        | ```false```              | Display an upload indicator, useful while uploading an attachment                                                      |
 
 ### Custom factories
 To override or extend the functionality of the existing message types, you can provide an object with React components, which will be used instead of the built-in ones.
