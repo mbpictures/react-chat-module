@@ -75,7 +75,7 @@ const App = () => {
             messageId: "5",
             senderId: "2",
             profilePicture: "https://via.placeholder.com/150",
-            video: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+            video: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_20mb.mp4",
             type: "video",
             text: "Look at this funny video!"
         },
@@ -86,7 +86,7 @@ const App = () => {
             profilePicture: "https://via.placeholder.com/150",
             file: {
                 fileType: "mp4",
-                file: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+                file: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_20mb.mp4",
                 fileName: "Sample Video"
             },
             type: "file"
@@ -96,7 +96,7 @@ const App = () => {
             messageId: "7",
             senderId: "2",
             profilePicture: "https://via.placeholder.com/150",
-            audio: "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3",
+            audio: "https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_2MG.mp3",
             type: "audio"
         },
         {
@@ -111,7 +111,7 @@ const App = () => {
             messageId: "9",
             senderId: "1",
             profilePicture: "https://via.placeholder.com/150",
-            photo: "http://unsplash.s3.amazonaws.com/batch%203/www.madebyvadim.com.jpg",
+            photo: "https://images.unsplash.com/photo-1714227667692-df498d9b5943?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             type: "image",
             text: "Look at this funny image!"
         },
