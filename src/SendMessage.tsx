@@ -42,7 +42,7 @@ export const SendMessage: FunctionComponent<Props> = (props: Props) => {
     return (
         <div className={style.message_container}>
             <Input onSend={props.onSend} sendButton={props.buttons?.send} />
-            {!props.disableAttachments && (
+            {!(props.disableAttachments ?? false) && (
                 <FileAttachment
                     onSelectFile={onFileChanged}
                     attachmentFileTypes={props.attachmentFileTypes}
@@ -61,8 +61,4 @@ export const SendMessage: FunctionComponent<Props> = (props: Props) => {
             )}
         </div>
     );
-};
-
-SendMessage.defaultProps = {
-    disableAttachments: false,
 };

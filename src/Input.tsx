@@ -40,11 +40,9 @@ export const Input: FunctionComponent<Props> = (props: Props) => {
     return (
         <div className={style.input}>
             <textarea ref={inputField} onKeyPress={handleInputKey} />
-            <div onClick={handleSend}>{props.sendButton}</div>
+            <div onClick={handleSend}>
+                {props.sendButton ?? <SendButtonRenderer />}
+            </div>
         </div>
     );
-};
-
-Input.defaultProps = {
-    sendButton: <SendButtonRenderer />,
 };

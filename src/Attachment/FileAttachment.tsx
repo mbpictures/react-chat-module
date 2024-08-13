@@ -60,10 +60,11 @@ export const FileAttachment: FunctionComponent<Props> = (props: Props) => {
     };
 
     const classNamesPopup = `${style.popup} ${popupOpen ? style.open : ""}`;
+    const attachmentFileTypes =
+        props.attachmentFileTypes ??
+        FileTypes.map((value) => value as FileType);
 
-    if (!props.attachmentFileTypes) return null;
-
-    const fileButtons = props.attachmentFileTypes.map((type) => {
+    const fileButtons = attachmentFileTypes.map((type) => {
         return (
             <FileButton
                 fileType={type}
@@ -105,8 +106,4 @@ export const FileAttachment: FunctionComponent<Props> = (props: Props) => {
             )}
         </div>
     );
-};
-
-FileAttachment.defaultProps = {
-    attachmentFileTypes: FileTypes.map((value) => value as FileType),
 };

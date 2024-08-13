@@ -27,6 +27,8 @@ interface Props {
 export const Chat: React.FunctionComponent<Props> = (props: Props) => {
     const { dropzoneContainerProps, feedbackContainer } = useDropzone();
 
+    const loadingSpinner = props.loadingSpinner ?? <LoadingIndicator />;
+
     return (
         <div className={style.main} {...dropzoneContainerProps}>
             <div className={style.container}>
@@ -34,11 +36,11 @@ export const Chat: React.FunctionComponent<Props> = (props: Props) => {
                     userId={props.userId}
                     messages={props.messages}
                     factoryOverride={props.customFactories}
-                    loadingSpinner={props.loadingSpinner}
+                    loadingSpinner={loadingSpinner}
                 />
                 <SendMessage
                     onSend={props.onSend}
-                    loadingSpinner={props.loadingSpinner}
+                    loadingSpinner={loadingSpinner}
                     buttons={props.buttons}
                     customFactories={props.customFactories}
                     disableAttachments={props.disableAttachments}
@@ -49,8 +51,4 @@ export const Chat: React.FunctionComponent<Props> = (props: Props) => {
             {feedbackContainer}
         </div>
     );
-};
-
-Chat.defaultProps = {
-    loadingSpinner: <LoadingIndicator />,
 };
